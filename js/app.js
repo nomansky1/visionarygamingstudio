@@ -149,13 +149,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================================
-       2. 4K VIDEO TRAILER MODAL & SHOWCASE THUMBNAIL CONTROLLER
+       2. 4K VIDEO TRAILER MODAL & YOUTUBE SHOWCASE CONTROLLER
        ========================================================================== */
     const videoModal = document.getElementById('video-modal');
-    const trailerVideo = document.getElementById('trailer-video-player');
+    const youtubePlayer = document.getElementById('trailer-youtube-player');
     const btnCloseVideo = document.getElementById('btn-close-video');
     const videoModalBackdrop = document.getElementById('video-modal-backdrop');
     const flagshipInlineVideo = document.getElementById('flagship-inline-video');
+
+    let currentYouTubeId = 'HfrzjO09BY0'; // Default: Official VoxKart Trailer
 
     const trailerTriggers = [
         document.getElementById('btn-header-trailer'),
@@ -165,13 +167,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('btn-hero-trailer')
     ];
 
-    function openVideoModal() {
+    function openVideoModal(videoId = currentYouTubeId) {
         if (videoModal) {
             videoModal.classList.add('active');
             videoModal.setAttribute('aria-hidden', 'false');
-            if (trailerVideo) {
-                trailerVideo.currentTime = 0;
-                trailerVideo.play().catch(err => console.log('Video autoplay note:', err));
+            if (youtubePlayer) {
+                youtubePlayer.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
             }
         }
     }
@@ -180,8 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (videoModal) {
             videoModal.classList.remove('active');
             videoModal.setAttribute('aria-hidden', 'true');
-            if (trailerVideo) {
-                trailerVideo.pause();
+            if (youtubePlayer) {
+                youtubePlayer.src = '';
             }
         }
     }
@@ -190,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (trigger) {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
-                openVideoModal();
+                openVideoModal(currentYouTubeId);
             });
         }
     });
@@ -198,17 +199,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnCloseVideo) btnCloseVideo.addEventListener('click', closeVideoModal);
     if (videoModalBackdrop) videoModalBackdrop.addEventListener('click', closeVideoModal);
 
-    // Video Thumbnail Strip Switcher
+    // Video Thumbnail Strip Switcher (Loads YouTube Videos)
     const thumbItems = document.querySelectorAll('.video-thumbnails-strip .thumb-item');
     thumbItems.forEach(thumb => {
         thumb.addEventListener('click', (e) => {
             e.stopPropagation();
             thumbItems.forEach(t => t.classList.remove('active'));
             thumb.classList.add('active');
+            
+            const ytId = thumb.dataset.youtubeId;
+            if (ytId) {
+                currentYouTubeId = ytId;
+            }
+
             const posterSrc = thumb.dataset.poster;
             if (flagshipInlineVideo && posterSrc) {
                 flagshipInlineVideo.poster = posterSrc;
             }
+
+            // Open modal to play selected YouTube video directly
+            openVideoModal(currentYouTubeId);
         });
     });
 
