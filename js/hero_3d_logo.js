@@ -39,9 +39,21 @@ export function initFullSite3DVoxelLogo(containerId = 'hero-3d-banner-viewport')
     scene.background = null; // Transparent to blend seamlessly with background
     scene.fog = new THREE.FogExp2(0x04060f, 0.018);
 
-    // Zoomed out camera with 42 FOV and Z = 9.8 ensures entire emblem + text is fully visible and legible
-    const camera = new THREE.PerspectiveCamera(42, width / height, 0.1, 100);
-    camera.position.set(0, -0.05, 9.8);
+    // Camera setup with dynamic responsive mobile-friendly framing
+    const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 120);
+
+    function updateCameraDistance() {
+        const aspect = width / height;
+        // Base desktop distance is 12.8. On mobile/portrait viewports (aspect < 1.6), back up further so full logo & typography fit perfectly!
+        let zDist = 12.8;
+        if (aspect < 1.6) {
+            zDist = 12.8 * (1.6 / Math.max(aspect, 0.52));
+        }
+        camera.position.set(0, -0.05, Math.min(zDist, 25.0));
+        camera.aspect = aspect;
+        camera.updateProjectionMatrix();
+    }
+    updateCameraDistance();
 
     const renderer = new THREE.WebGLRenderer({ 
         antialias: true, 
@@ -135,27 +147,7 @@ export function initFullSite3DVoxelLogo(containerId = 'hero-3d-banner-viewport')
     cyanNebula.position.set(1.0, 0.2, 0);
     nebulaGroup.add(cyanNebula);
 
-    // Constellation Orbit Ring
-    const constellRingGeo = new THREE.RingGeometry(2.85, 2.87, 64);
-    const constellRingMat = new THREE.MeshBasicMaterial({
-        color: 0x38bdf8,
-        transparent: true,
-        opacity: 0.20,
-        side: THREE.DoubleSide
-    });
-    const constellRing = new THREE.Mesh(constellRingGeo, constellRingMat);
-    nebulaGroup.add(constellRing);
-
-    for (let i = 0; i < 18; i++) {
-        const angle = (i / 18) * Math.PI * 2;
-        const nodeGeo = new THREE.SphereGeometry(0.026, 8, 8);
-        const nodeMat = new THREE.MeshBasicMaterial({
-            color: i % 2 === 0 ? 0xa855f7 : 0x00f7ff
-        });
-        const node = new THREE.Mesh(nodeGeo, nodeMat);
-        node.position.set(Math.cos(angle) * 2.86, Math.sin(angle) * 2.86, 0.02);
-        nebulaGroup.add(node);
-    }
+    // Clean Cosmic Nebula (Blue ring removed per user request)
 
     // === 6. LOAD CELESTIAL VOXEL EMBLEM (FRAME-0 INSTANT FALLBACK + 20,000+ HD SWAP) ===
     let voxelMesh = null;
@@ -410,8 +402,7 @@ export function initFullSite3DVoxelLogo(containerId = 'hero-3d-banner-viewport')
     function handleResize() {
         width = container.clientWidth || window.innerWidth;
         height = container.clientHeight || Math.max(window.innerHeight * 0.72, 540);
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
+        updateCameraDistance();
         renderer.setSize(width, height);
         composer.setSize(width, height);
     }

@@ -268,26 +268,7 @@
     cyanNebula.position.set(0.8, 0.2, 0);
     nebulaGroup.add(cyanNebula);
 
-    const constellRingGeo = new THREE.RingGeometry(2.35, 2.37, 64);
-    const constellRingMat = new THREE.MeshBasicMaterial({
-        color: 0x38bdf8,
-        transparent: true,
-        opacity: 0.25,
-        side: THREE.DoubleSide
-    });
-    const constellRing = new THREE.Mesh(constellRingGeo, constellRingMat);
-    nebulaGroup.add(constellRing);
-
-    for (let i = 0; i < 14; i++) {
-        const angle = (i / 14) * Math.PI * 2;
-        const nodeGeo = new THREE.SphereGeometry(0.024, 8, 8);
-        const nodeMat = new THREE.MeshBasicMaterial({
-            color: i % 2 === 0 ? 0xa855f7 : 0x38bdf8
-        });
-        const node = new THREE.Mesh(nodeGeo, nodeMat);
-        node.position.set(Math.cos(angle) * 2.36, Math.sin(angle) * 2.36, 0.02);
-        nebulaGroup.add(node);
-    }
+    // Clean Cosmic Nebula (Blue ring removed per user request)
 
     // === 6. ANIMATED 3D PLAY BUTTON IN CENTER ===
     const playGroup = new THREE.Group();
