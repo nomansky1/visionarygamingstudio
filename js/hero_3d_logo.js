@@ -40,16 +40,20 @@ export function initFullSite3DVoxelLogo(containerId = 'hero-3d-banner-viewport')
     scene.fog = new THREE.FogExp2(0x04060f, 0.018);
 
     // Camera setup with dynamic responsive mobile-friendly framing
-    const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 120);
+    const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 150);
 
     function updateCameraDistance() {
         const aspect = width / height;
-        // Base desktop distance is 12.8. On mobile/portrait viewports (aspect < 1.6), back up further so full logo & typography fit perfectly!
-        let zDist = 12.8;
-        if (aspect < 1.6) {
-            zDist = 12.8 * (1.6 / Math.max(aspect, 0.52));
-        }
-        camera.position.set(0, -0.05, Math.min(zDist, 25.0));
+        // Total horizontal width needed for emblem + full typography + padding is ~9.6 world units
+        const tanFov = Math.tan((camera.fov * Math.PI) / 360);
+        const requiredHalfWidth = 4.9; // 9.8 total width
+        
+        // Z distance mathematically required to guarantee 100% full visibility with safe margins on any screen
+        const requiredZ = requiredHalfWidth / (tanFov * Math.max(aspect, 0.22));
+        
+        // Desktop minimum 12.0, mobile backs up smoothly to fit all letters without clipping
+        const zDist = Math.max(12.0, Math.min(requiredZ, 38.0));
+        camera.position.set(0, -0.05, zDist);
         camera.aspect = aspect;
         camera.updateProjectionMatrix();
     }
