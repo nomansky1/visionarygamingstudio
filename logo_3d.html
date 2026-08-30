@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visionary Gaming Studio - 3D Celestial Voxel Showcase</title>
+  <link rel="icon" type="image/png" href="assets/images/logo_transparent.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      background: #030308; 
+      overflow: hidden; 
+      font-family: 'Rajdhani', sans-serif;
+      user-select: none;
+      color: #ffffff;
+    }
+    #canvas-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    canvas { display: block; width: 100%; height: 100%; }
+
+    /* UI Overlay */
+    .ui-top-bar {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      right: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .btn-ui {
+      pointer-events: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(13, 10, 24, 0.85);
+      border: 1px solid rgba(168, 85, 247, 0.5);
+      color: #c084fc;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.25);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-ui:hover {
+      background: #a855f7;
+      color: #ffffff;
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+      transform: translateY(-2px);
+    }
+    .top-actions {
+      display: flex;
+      gap: 12px;
+      pointer-events: auto;
+    }
+    .badge-info {
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      padding: 8px 16px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
+    }
+    .controls-hint {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cinzel', serif;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.85);
+      letter-spacing: 0.15em;
+      background: rgba(10, 8, 20, 0.85);
+      padding: 10px 24px;
+      border-radius: 30px;
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(168, 85, 247, 0.2);
+    }
+    .hint-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hint-item i {
+      color: #c084fc;
+    }
+
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: #030308;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      transition: opacity 0.5s ease;
+    }
+    .loading-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid rgba(168, 85, 247, 0.2);
+      border-top-color: #a855f7;
+      border-radius: 50%;
+      animation: spin 1.2s linear infinite;
+      margin-bottom: 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div id="loading-screen">
+    <div class="loading-spinner"></div>
+    <div style="font-family: 'Cinzel', serif; font-size: 0.9rem; letter-spacing: 0.2em; color: #c084fc;">
+      INITIALIZING CELESTIAL VOXEL MATRIX...
+    </div>
+  </div>
+
+  <div class="ui-top-bar">
+    <a href="index.html" class="btn-ui"><i class="fa-solid fa-arrow-left"></i> MAIN STUDIO SITE</a>
+    <div class="top-actions">
+      <span class="badge-info"><i class="fa-solid fa-cubes"></i> 20,000+ CELESTIAL VOXELS</span>
+      <button class="btn-ui" id="btn-explode"><i class="fa-solid fa-atom"></i> EXPLODE / REASSEMBLE</button>
+      <button class="btn-ui" id="btn-reset-cam"><i class="fa-solid fa-arrows-rotate"></i> RESET VIEW</button>
+    </div>
+  </div>
+
+  <div class="controls-hint">
+    <span class="hint-item"><i class="fa-solid fa-wand-magic-sparkles"></i> MOVE MOUSE TO INTERACT WITH VOXELS</span>
+    <span class="hint-item"><i class="fa-solid fa-burst"></i> CLICK TO EXPLODE / REASSEMBLE</span>
+    <span class="hint-item"><i class="fa-solid fa-magnifying-glass-plus"></i> SCROLL TO ZOOM</span>
+  </div>
+
+  <div id="canvas-container"></div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+    import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+    import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+
+    const container = document.getElementById('canvas-container');
+    const loadingScreen = document.getElementById('loading-screen');
+
+    // === 1. Scene & Camera ===
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x030308);
+    scene.fog = new THREE.FogExp2(0x030308, 0.025);
+
+    const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, 0, 7.5);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.15;
+    container.innerHTML = '';
+    container.appendChild(renderer.domElement);
+
+    // === 2. Smooth Bloom (Epilepsy-Safe, Low Opacity & Zero Glare) ===
+    const composer = new EffectComposer(renderer);
+    const renderPass = new RenderPass(scene, camera);
+    composer.addPass(renderPass);
+
+    const bloomPass = new UnrealBloomPass(
+      new THREE.Vector2(window.innerWidth, window.innerHeight),
+      0.60, // strength: 0.60
+      0.45, // radius: 0.45
+      0.86  // threshold: 0.86
+    );
+    composer.addPass(bloomPass);
+
+    // === 3. Steady Lighting ===
+    const ambient = new THREE.AmbientLight(0x2d2840, 2.2);
+    scene.add(ambient);
+
+    const whiteKeyLight = new THREE.DirectionalLight(0xffffff, 3.2);
+    whiteKeyLight.position.set(0, 6, 7);
+    scene.add(whiteKeyLight);
+
+    const violetLight = new THREE.PointLight(0xa855f7, 4.0, 30);
+    violetLight.position.set(-4.5, 2.0, 4.5);
+    scene.add(violetLight);
+
+    const cyanLight = new THREE.PointLight(0x06b6d4, 4.0, 30);
+    cyanLight.position.set(4.5, 1.0, 4.5);
+    scene.add(cyanLight);
+
+    const coreLight = new THREE.PointLight(0xffffff, 2.8, 14);
+    coreLight.position.set(0, 0.08, 2.2);
+    scene.add(coreLight);
+
+    const mouseSpot = new THREE.PointLight(0xc084fc, 2.2, 16);
+    mouseSpot.position.set(0, 0, 4);
+    scene.add(mouseSpot);
+
+    // === 4. Main 3D Logo Group (STATIONARY — NO AUTO-SPIN) ===
+    const logoGroup = new THREE.Group();
+    scene.add(logoGroup);
+
+    // === 5. SLOW SWIRLING COSMIC NEBULA VORTEX ===
+    const nebulaGroup = new THREE.Group();
+    nebulaGroup.position.set(0, 0, -0.2);
+    logoGroup.add(nebulaGroup);
+
+    function createNebulaCloud(colorHex, size, count, radiusX, radiusY) {
+        const geo = new THREE.BufferGeometry();
+        const positions = new Float32Array(count * 3);
+
+        for (let i = 0; i < count; i++) {
+            const angle = Math.random() * Math.PI * 2;
+            const dist = Math.sqrt(Math.random()) * radiusX;
+            positions[i * 3] = Math.cos(angle) * dist;
+            positions[i * 3 + 1] = Math.sin(angle) * dist * (radiusY / radiusX);
+            positions[i * 3 + 2] = (Math.random() - 0.5) * 0.8;
+        }
+
+        geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        const mat = new THREE.PointsMaterial({
+            color: colorHex,
+            size: size,
+            transparent: true,
+            opacity: 0.35,
+            blending: THREE.AdditiveBlending,
+            depthWrite: false
+        });
+        return new THREE.Points(geo, mat);
+    }
+
+    const violetNebula = createNebulaCloud(0xa855f7, 0.11, 160, 2.6, 2.0);
+    violetNebula.position.set(-0.8, 0.2, 0);
+    nebulaGroup.add(violetNebula);
+
+    const cyanNebula = createNebulaCloud(0x06b6d4, 0.11, 160, 2.6, 2.0);
+    cyanNebula.position.set(0.8, 0.2, 0);
+    nebulaGroup.add(cyanNebula);
+
+    const constellRingGeo = new THREE.RingGeometry(2.35, 2.37, 64);
+    const constellRingMat = new THREE.MeshBasicMaterial({
+        color: 0x38bdf8,
+        transparent: true,
+        opacity: 0.25,
+        side: THREE.DoubleSide
+    });
+    const constellRing = new THREE.Mesh(constellRingGeo, constellRingMat);
+    nebulaGroup.add(constellRing);
+
+    for (let i = 0; i < 14; i++) {
+        const angle = (i / 14) * Math.PI * 2;
+        const nodeGeo = new THREE.SphereGeometry(0.024, 8, 8);
+        const nodeMat = new THREE.MeshBasicMaterial({
+            color: i % 2 === 0 ? 0xa855f7 : 0x38bdf8
+        });
+        const node = new THREE.Mesh(nodeGeo, nodeMat);
+        node.position.set(Math.cos(angle) * 2.36, Math.sin(angle) * 2.36, 0.02);
+        nebulaGroup.add(node);
+    }
+
+    // === 6. ANIMATED 3D PLAY BUTTON IN CENTER ===
+    const playGroup = new THREE.Group();
+    playGroup.position.set(0, 0.08, 0.58);
+    logoGroup.add(playGroup);
+
+    const playShape = new THREE.Shape();
+    playShape.moveTo(-0.24, -0.28);
+    playShape.lineTo(-0.24, 0.28);
+    playShape.lineTo(0.30, 0.0);
+    playShape.closePath();
+
+    const playGeo = new THREE.ExtrudeGeometry(playShape, {
+        depth: 0.12,
+        bevelEnabled: true,
+        bevelSegments: 3,
+        steps: 1,
+        bevelSize: 0.035,
+        bevelThickness: 0.035
+    });
+
+    const playMat = new THREE.MeshStandardMaterial({
+        color: 0xffffff,
+        emissive: 0x00f7ff,
+        emissiveIntensity: 1.35, // Gentle, comfortable emissive (~1.2 to 1.5)
+        metalness: 0.95,
+        roughness: 0.15
+    });
+    const playMesh = new THREE.Mesh(playGeo, playMat);
+    playMesh.position.set(0, 0, -0.06);
+    playGroup.add(playMesh);
+
+    const innerPlayGeo = new THREE.ExtrudeGeometry(playShape, { depth: 0.04, bevelEnabled: false });
+    const innerPlayMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    const innerPlayMesh = new THREE.Mesh(innerPlayGeo, innerPlayMat);
+    innerPlayMesh.scale.set(0.75, 0.75, 1);
+    innerPlayMesh.position.set(0.03, 0, 0.08);
+    playGroup.add(innerPlayMesh);
+
+    const irisHaloGeo = new THREE.TorusGeometry(0.55, 0.022, 16, 48);
+    const irisHaloMat = new THREE.MeshStandardMaterial({
+        color: 0x06b6d4,
+        emissive: 0xa855f7,
+        emissiveIntensity: 1.25, // Gentle, comfortable emissive (~1.2 to 1.5)
+        roughness: 0.15,
+        metalness: 0.85
+    });
+    const irisHaloMesh = new THREE.Mesh(irisHaloGeo, irisHaloMat);
+    irisHaloMesh.position.set(0, 0, -0.04);
+    playGroup.add(irisHaloMesh);
+
+    // === 7. UNIFIED 20,000+ 3D VOXEL MATRIX ===
+    let voxelMesh = null;
+    let initialPositions = [];
+    let explosionFactors = [];
+    let explodeProgress = 0;
+    let targetExplode = 0;
+    let isExploded = false;
+
+    // Slow Gravity Parameters
+    const GRAVITY_STRENGTH = 0.060;
+    const GRAVITY_RADIUS = 2.4;
+    const SPRING_RETURN_FORCE = 0.034;
+    const VELOCITY_DAMPING = 0.89;
+
+    const currentPositions = [];
+    const velocities = [];
+
+    fetch('assets/images/celestial_voxels_hd.json')
+        .then(res => res.json())
+        .then(data => {
+            const count = data.length;
+            const voxelGeo = new THREE.BoxGeometry(0.042, 0.042, 0.042);
+            
+            const voxelMat = new THREE.MeshStandardMaterial({
+                metalness: 0.85,
+                roughness: 0.22,
+                emissive: 0x111122,
+                emissiveIntensity: 0.25
+            });
+
+            voxelMesh = new THREE.InstancedMesh(voxelGeo, voxelMat, count);
+            voxelMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+
+            const dummy = new THREE.Object3D();
+            const color = new THREE.Color();
+
+            for (let i = 0; i < count; i++) {
+                const [x, y, z, r, g, b, emissive] = data[i];
+
+                dummy.position.set(x, y, z);
+                dummy.updateMatrix();
+                voxelMesh.setMatrixAt(i, dummy.matrix);
+
+                color.setRGB(r / 255, g / 255, b / 255);
+                voxelMesh.setColorAt(i, color);
+
+                initialPositions.push(new THREE.Vector3(x, y, z));
+                currentPositions.push(new THREE.Vector3(x, y, z));
+                velocities.push(new THREE.Vector3(0, 0, 0));
+                
+                const expDir = new THREE.Vector3(
+                    x * 1.5 + (Math.random() - 0.5) * 2.2,
+                    y * 1.5 + (Math.random() - 0.5) * 2.2,
+                    z * 2.8 + (Math.random() - 0.5) * 2.8
+                );
+                explosionFactors.push(expDir);
+            }
+
+            voxelMesh.instanceMatrix.needsUpdate = true;
+            if (voxelMesh.instanceColor) voxelMesh.instanceColor.needsUpdate = true;
+
+            logoGroup.add(voxelMesh);
+
+            if (loadingScreen) {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => { loadingScreen.style.display = 'none'; }, 500);
+            }
+        })
+        .catch(err => {
+            console.error('Error loading unified celestial voxel model:', err);
+        });
+
+    // === 8. MOUSE INTERACTION & BUTTONS ===
+    let mouseWorld = new THREE.Vector3(999, 999, 0);
+    let isHovering = false;
+    let targetTiltX = 0;
+    let targetTiltY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        isHovering = true;
+        const w = window.innerWidth || 1;
+        const h = window.innerHeight || 1;
+        const normX = (e.clientX - w / 2) / (w / 2);
+        const normY = (e.clientY - h / 2) / (h / 2);
+
+        const aspect = w / h;
+        mouseWorld.x = normX * aspect * 3.8;
+        mouseWorld.y = -normY * 2.6;
+        mouseWorld.z = 0.6;
+
+        targetTiltY = normX * 0.12;
+        targetTiltX = -normY * 0.10;
+
+        mouseSpot.position.x = mouseWorld.x * 1.1;
+        mouseSpot.position.y = mouseWorld.y * 1.1;
+    });
+
+    window.addEventListener('mouseleave', () => {
+        isHovering = false;
+        targetTiltX = 0;
+        targetTiltY = 0;
+        mouseWorld.set(999, 999, 0);
+    });
+
+    window.addEventListener('wheel', (e) => {
+      camera.position.z = THREE.MathUtils.clamp(camera.position.z + e.deltaY * 0.004, 4.5, 14);
+    });
+
+    const btnExplode = document.getElementById('btn-explode');
+    if (btnExplode) {
+      btnExplode.addEventListener('click', (e) => {
+        e.stopPropagation();
+        isExploded = !isExploded;
+        targetExplode = isExploded ? 1.0 : 0.0;
+        btnExplode.innerHTML = isExploded ? '<i class="fa-solid fa-magnet"></i> REASSEMBLE VOXELS' : '<i class="fa-solid fa-atom"></i> EXPLODE VOXELS';
+      });
+    }
+
+    const btnResetCam = document.getElementById('btn-reset-cam');
+    if (btnResetCam) {
+      btnResetCam.addEventListener('click', (e) => {
+        e.stopPropagation();
+        targetTiltX = 0;
+        targetTiltY = 0;
+        camera.position.set(0, 0, 7.5);
+      });
+    }
+
+    window.addEventListener('click', (e) => {
+      if (e.target.closest('button') || e.target.closest('a')) return;
+      isExploded = !isExploded;
+      targetExplode = isExploded ? 1.0 : 0.0;
+      if (btnExplode) {
+        btnExplode.innerHTML = isExploded ? '<i class="fa-solid fa-magnet"></i> REASSEMBLE VOXELS' : '<i class="fa-solid fa-atom"></i> EXPLODE VOXELS';
+      }
+    });
+
+    // === 9. Animation Loop ===
+    const clock = new THREE.Clock();
+    const dummy = new THREE.Object3D();
+
+    function animate() {
+      requestAnimationFrame(animate);
+      const t = clock.getElapsedTime();
+
+      // Stationary facing forward with slight smooth mouse tilt (NO AUTO-SPIN)
+      logoGroup.rotation.y += (targetTiltY - logoGroup.rotation.y) * 0.06;
+      logoGroup.rotation.x += (targetTiltX - logoGroup.rotation.x) * 0.06;
+      logoGroup.rotation.z = 0;
+
+      // Gentle subtle floating breathing
+      logoGroup.position.y = Math.sin(t * 0.5) * 0.04;
+
+      // Slow ethereal swirling nebula
+      violetNebula.rotation.z = t * 0.016;
+      cyanNebula.rotation.z = -t * 0.014;
+      constellRing.rotation.z = t * 0.010;
+
+      // Gentle calm play button pulse
+      playMat.emissiveIntensity = 1.35 + Math.sin(t * 0.7) * 0.12;
+      playGroup.scale.setScalar(1.0 + Math.sin(t * 0.7) * 0.012);
+      irisHaloMesh.rotation.z = -t * 0.25;
+
+      // Steady light positions
+      violetLight.position.x = -4.5 + Math.sin(t * 0.35) * 0.6;
+      cyanLight.position.x = 4.5 + Math.cos(t * 0.35) * 0.6;
+
+      // SLOW GRAVITY & DISPLACEMENT PHYSICS CALCULATION
+      if (voxelMesh && initialPositions.length > 0) {
+        explodeProgress += (targetExplode - explodeProgress) * 0.040;
+
+        for (let i = 0; i < initialPositions.length; i++) {
+            const init = initialPositions[i];
+            const cur = currentPositions[i];
+            const vel = velocities[i];
+            const exp = explosionFactors[i];
+
+            if (explodeProgress < 0.02) {
+                // SLOW GRAVITATIONAL ATTRACTION TO MOUSE
+                if (isHovering) {
+                    const dx = mouseWorld.x - cur.x;
+                    const dy = mouseWorld.y - cur.y;
+                    const dz = mouseWorld.z - cur.z;
+                    const distSq = dx * dx + dy * dy + dz * dz;
+                    const dist = Math.sqrt(distSq);
+
+                    if (dist < GRAVITY_RADIUS && dist > 0.05) {
+                        const falloff = (1.0 - dist / GRAVITY_RADIUS);
+                        const force = (GRAVITY_STRENGTH * falloff * falloff) / (dist + 0.25);
+                        
+                        vel.x += (dx / dist) * force;
+                        vel.y += (dy / dist) * force;
+                        vel.z += (dz / dist) * force * 1.6;
+                    }
+                }
+
+                // HARMONIC SPRING RETURN FORCE
+                const springX = (init.x - cur.x) * SPRING_RETURN_FORCE;
+                const springY = (init.y - cur.y) * SPRING_RETURN_FORCE;
+                const springZ = (init.z - cur.z) * SPRING_RETURN_FORCE;
+
+                vel.x = (vel.x + springX) * VELOCITY_DAMPING;
+                vel.y = (vel.y + springY) * VELOCITY_DAMPING;
+                vel.z = (vel.z + springZ) * VELOCITY_DAMPING;
+
+                cur.x += vel.x;
+                cur.y += vel.y;
+                cur.z += vel.z;
+
+                dummy.position.copy(cur);
+                dummy.rotation.set(vel.y * 0.6, vel.x * 0.6, 0);
+            } else {
+                const targetX = init.x + exp.x * explodeProgress;
+                const targetY = init.y + exp.y * explodeProgress;
+                const targetZ = init.z + exp.z * explodeProgress;
+
+                cur.x += (targetX - cur.x) * 0.08;
+                cur.y += (targetY - cur.y) * 0.08;
+                cur.z += (targetZ - cur.z) * 0.08;
+
+                dummy.position.copy(cur);
+                dummy.rotation.set(exp.x * explodeProgress * 1.2, exp.y * explodeProgress * 1.2, 0);
+            }
+
+            dummy.updateMatrix();
+            voxelMesh.setMatrixAt(i, dummy.matrix);
+        }
+        voxelMesh.instanceMatrix.needsUpdate = true;
+      }
+
+      composer.render();
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      composer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>
