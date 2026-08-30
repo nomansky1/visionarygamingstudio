@@ -149,15 +149,83 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================================
-       2. 4K VIDEO TRAILER MODAL & YOUTUBE SHOWCASE CONTROLLER
+       2. 4K VIDEO TRAILER MODAL & DUAL ENGINE CONTROLLER
        ========================================================================== */
     const videoModal = document.getElementById('video-modal');
+    const html5Player = document.getElementById('trailer-html5-player');
     const youtubePlayer = document.getElementById('trailer-youtube-player');
+    const videoModalTitle = document.getElementById('video-modal-title');
+    const tabHtml5 = document.getElementById('tab-html5-video');
+    const tabYoutube = document.getElementById('tab-youtube-video');
     const btnCloseVideo = document.getElementById('btn-close-video');
     const videoModalBackdrop = document.getElementById('video-modal-backdrop');
     const flagshipInlineVideo = document.getElementById('flagship-inline-video');
 
-    let currentYouTubeId = 'HfrzjO09BY0'; // Default: Official VoxKart Trailer
+    let currentVideoSrc = 'assets/videos/voxkart_trailer_web.mp4';
+    let currentYouTubeId = 'HfrzjO09BY0';
+    let currentTitle = 'VoxKart: 4K Gameplay Trailer (Racing & Combat)';
+    let currentMode = 'html5'; // 'html5' or 'youtube'
+
+    function setPlayerMode(mode) {
+        currentMode = mode;
+        if (mode === 'html5') {
+            if (tabHtml5) tabHtml5.classList.add('active');
+            if (tabYoutube) tabYoutube.classList.remove('active');
+            if (html5Player) {
+                html5Player.style.display = 'block';
+                html5Player.src = currentVideoSrc;
+                html5Player.currentTime = 0;
+                html5Player.play().catch(e => console.log('HTML5 play note:', e));
+            }
+            if (youtubePlayer) {
+                youtubePlayer.style.display = 'none';
+                youtubePlayer.src = '';
+            }
+        } else {
+            if (tabYoutube) tabYoutube.classList.add('active');
+            if (tabHtml5) tabHtml5.classList.remove('active');
+            if (html5Player) {
+                html5Player.pause();
+                html5Player.style.display = 'none';
+            }
+            if (youtubePlayer) {
+                youtubePlayer.style.display = 'block';
+                youtubePlayer.src = `https://www.youtube-nocookie.com/embed/${currentYouTubeId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+            }
+        }
+    }
+
+    if (tabHtml5) tabHtml5.addEventListener('click', () => setPlayerMode('html5'));
+    if (tabYoutube) tabYoutube.addEventListener('click', () => setPlayerMode('youtube'));
+
+    function openVideoModal(videoSrc = currentVideoSrc, ytId = currentYouTubeId, title = currentTitle) {
+        currentVideoSrc = videoSrc;
+        currentYouTubeId = ytId;
+        currentTitle = title;
+
+        if (videoModalTitle) {
+            videoModalTitle.innerHTML = `<i class="fa-solid fa-play"></i> ${title.toUpperCase()}`;
+        }
+
+        if (videoModal) {
+            videoModal.classList.add('active');
+            videoModal.setAttribute('aria-hidden', 'false');
+            setPlayerMode(currentMode);
+        }
+    }
+
+    function closeVideoModal() {
+        if (videoModal) {
+            videoModal.classList.remove('active');
+            videoModal.setAttribute('aria-hidden', 'true');
+            if (html5Player) {
+                html5Player.pause();
+            }
+            if (youtubePlayer) {
+                youtubePlayer.src = '';
+            }
+        }
+    }
 
     const trailerTriggers = [
         document.getElementById('btn-header-trailer'),
@@ -167,31 +235,11 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('btn-hero-trailer')
     ];
 
-    function openVideoModal(videoId = currentYouTubeId) {
-        if (videoModal) {
-            videoModal.classList.add('active');
-            videoModal.setAttribute('aria-hidden', 'false');
-            if (youtubePlayer) {
-                youtubePlayer.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
-            }
-        }
-    }
-
-    function closeVideoModal() {
-        if (videoModal) {
-            videoModal.classList.remove('active');
-            videoModal.setAttribute('aria-hidden', 'true');
-            if (youtubePlayer) {
-                youtubePlayer.src = '';
-            }
-        }
-    }
-
     trailerTriggers.forEach(trigger => {
         if (trigger) {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
-                openVideoModal(currentYouTubeId);
+                openVideoModal(currentVideoSrc, currentYouTubeId, currentTitle);
             });
         }
     });
@@ -199,26 +247,30 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnCloseVideo) btnCloseVideo.addEventListener('click', closeVideoModal);
     if (videoModalBackdrop) videoModalBackdrop.addEventListener('click', closeVideoModal);
 
-    // Video Thumbnail Strip Switcher (Loads YouTube Videos)
+    // Video Thumbnail Strip Switcher
     const thumbItems = document.querySelectorAll('.video-thumbnails-strip .thumb-item');
     thumbItems.forEach(thumb => {
         thumb.addEventListener('click', (e) => {
             e.stopPropagation();
             thumbItems.forEach(t => t.classList.remove('active'));
             thumb.classList.add('active');
-            
-            const ytId = thumb.dataset.youtubeId;
-            if (ytId) {
-                currentYouTubeId = ytId;
-            }
 
+            const vSrc = thumb.dataset.videoSrc || 'assets/videos/voxkart_trailer_web.mp4';
+            const ytId = thumb.dataset.youtubeId || 'HfrzjO09BY0';
+            const vTitle = thumb.dataset.title || 'VoxKart Action Gameplay';
             const posterSrc = thumb.dataset.poster;
-            if (flagshipInlineVideo && posterSrc) {
-                flagshipInlineVideo.poster = posterSrc;
-            }
 
-            // Open modal to play selected YouTube video directly
-            openVideoModal(currentYouTubeId);
+            currentVideoSrc = vSrc;
+            currentYouTubeId = ytId;
+            currentTitle = vTitle;
+
+            // Update inline preview video background
+            if (flagshipInlineVideo) {
+                if (posterSrc) flagshipInlineVideo.poster = posterSrc;
+                flagshipInlineVideo.src = vSrc;
+                flagshipInlineVideo.currentTime = 0;
+                flagshipInlineVideo.play().catch(e => console.log('Inline preview note:', e));
+            }
         });
     });
 

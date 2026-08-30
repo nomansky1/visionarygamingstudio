@@ -172,8 +172,8 @@
                         <div class="media-display-card">
                             <!-- EMBEDDED VIDEO PLAYER WITH CUSTOM CYBER OVERLAY & POSTER -->
                             <div class="video-preview-wrapper" id="video-card-trigger">
-                                <video id="flagship-inline-video" class="video-poster-img" poster="assets/images/voxkart_screen_1.jpg" preload="metadata" muted playsinline>
-                                    <source src="assets/videos/voxkart_trailer_web.mp4" type="video/mp4">
+                                <video id="flagship-inline-video" class="video-poster-img" poster="assets/images/voxkart_screen_1.jpg" preload="auto" muted loop playsinline autoplay>
+                                    <source src="assets/videos/voxkart_clip_race.mp4" type="video/mp4">
                                     Your browser does not support HTML5 video.
                                 </video>
                                 <div class="video-play-overlay">
@@ -186,23 +186,23 @@
                                 <div class="media-corner-accent corner-br"></div>
                             </div>
 
-                            <!-- VIDEO THUMBNAIL SWITCHER STRIP (YOUTUBE VIDEOS) -->
+                            <!-- VIDEO THUMBNAIL SWITCHER STRIP -->
                             <div class="video-thumbnails-strip">
-                                <div class="thumb-item active" data-youtube-id="HfrzjO09BY0" data-poster="assets/images/voxkart_screen_1.jpg" data-title="VoxKart: Combat Circuit Racing Demo Trailer">
+                                <div class="thumb-item active" data-video-src="assets/videos/voxkart_trailer_web.mp4" data-youtube-id="HfrzjO09BY0" data-poster="assets/images/voxkart_screen_1.jpg" data-title="VoxKart: 4K Gameplay Trailer (Racing & Combat)">
                                     <img src="assets/images/voxkart_screen_1.jpg" alt="Combat Circuit Trailer">
-                                    <span><i class="fa-brands fa-youtube"></i> Main Trailer</span>
+                                    <span><i class="fa-solid fa-film"></i> 4K Trailer</span>
                                 </div>
-                                <div class="thumb-item" data-youtube-id="1iRomnKB4wQ" data-poster="assets/images/voxkart_screen_2.jpg" data-title="VoxKart Circuit Demo Race">
+                                <div class="thumb-item" data-video-src="assets/videos/voxkart_clip_drift.mp4" data-youtube-id="1iRomnKB4wQ" data-poster="assets/images/voxkart_screen_2.jpg" data-title="Apex Drift & Nitrous Boost">
                                     <img src="assets/images/voxkart_screen_2.jpg" alt="Circuit Demo Race">
-                                    <span><i class="fa-brands fa-youtube"></i> Circuit Race</span>
+                                    <span><i class="fa-solid fa-bolt"></i> 3-Tier Drift</span>
                                 </div>
-                                <div class="thumb-item" data-youtube-id="6iZs2kAW_xM" data-poster="assets/images/voxkart_screen_3.jpg" data-title="Pure Chaos in Voxel Racing! Overcharge Demo Gameplay">
+                                <div class="thumb-item" data-video-src="assets/videos/voxkart_clip_combat.mp4" data-youtube-id="6iZs2kAW_xM" data-poster="assets/images/voxkart_screen_3.jpg" data-title="Voxel Combat, Plasma Missiles & Energy Shield">
                                     <img src="assets/images/voxkart_screen_3.jpg" alt="Combat Gameplay Preview">
-                                    <span><i class="fa-brands fa-youtube"></i> Combat Chaos</span>
+                                    <span><i class="fa-solid fa-shield-halved"></i> Voxel Combat</span>
                                 </div>
-                                <div class="thumb-item" data-youtube-id="HfrzjO09BY0" data-poster="assets/images/voxkart_screen_4.jpg" data-title="Track Destruction & Lap Telemetry">
+                                <div class="thumb-item" data-video-src="assets/videos/voxkart_clip_race.mp4" data-youtube-id="HfrzjO09BY0" data-poster="assets/images/voxkart_screen_4.jpg" data-title="Night Metropolis Circuit Speed Race">
                                     <img src="assets/images/voxkart_screen_4.jpg" alt="Telemetry Preview">
-                                    <span>Telemetry HUD</span>
+                                    <span><i class="fa-solid fa-gauge-high"></i> Circuit Race</span>
                                 </div>
                             </div>
 
@@ -731,13 +731,26 @@
         </div>
     </div>
 
-    <!-- 4K VIDEO TRAILER MODAL (YOUTUBE EMBED) -->
+    <!-- 4K VIDEO TRAILER MODAL (DUAL ENGINE: HD WEB + YOUTUBE 4K) -->
     <div class="video-modal" id="video-modal" aria-hidden="true" role="dialog">
         <div class="video-modal-backdrop" id="video-modal-backdrop"></div>
         <div class="video-modal-window">
-            <button class="video-close-btn" id="btn-close-video" title="Close Video"><i class="fa-solid fa-xmark"></i></button>
+            <div class="video-modal-header">
+                <div class="video-modal-title" id="video-modal-title">
+                    <i class="fa-solid fa-play"></i> VOXKART 4K GAMEPLAY TRAILER
+                </div>
+                <div class="video-modal-tabs">
+                    <button class="modal-tab-btn active" id="tab-html5-video"><i class="fa-solid fa-film"></i> HD Web Video</button>
+                    <button class="modal-tab-btn" id="tab-youtube-video"><i class="fa-brands fa-youtube"></i> YouTube 4K</button>
+                </div>
+                <button class="video-close-btn" id="btn-close-video" title="Close Video"><i class="fa-solid fa-xmark"></i></button>
+            </div>
             <div class="video-container-inner">
-                <iframe id="trailer-youtube-player" src="" title="VoxKart Official Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <video id="trailer-html5-player" controls preload="auto" playsinline>
+                    <source src="assets/videos/voxkart_trailer_web.mp4" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+                <iframe id="trailer-youtube-player" src="" style="display: none;" title="VoxKart Official Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
         </div>
     </div>
