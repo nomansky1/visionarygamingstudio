@@ -6,9 +6,9 @@
              Scroll Spy, Smooth Scroll & VIP Alpha Registration Form
    ========================================================================== */
 
-import { initFullSite3DVoxelLogo } from './hero_3d_logo.js?v=4.0';
-import { initGlobalVoxelBackground } from './global_voxel_bg.js?v=4.0';
-import { initTransparentVideoPlayer } from './transparent_video_player.js?v=4.0';
+import { initFullSite3DVoxelLogo } from './hero_3d_logo.js?v=5.0';
+import { initGlobalVoxelBackground } from './global_voxel_bg.js?v=5.0';
+import { initTransparentVideoPlayer } from './transparent_video_player.js?v=5.0';
 
 document.addEventListener('DOMContentLoaded', () => {
 
