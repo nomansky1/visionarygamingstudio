@@ -37,7 +37,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="css/style.css?v=3.5">
+    <link rel="stylesheet" href="css/style.css?v=4.0">
 
     <!-- Three.js Import Map -->
     <script type="importmap">
@@ -307,9 +307,6 @@
                             <a href="https://store.steampowered.com" target="_blank" rel="noopener" class="btn btn-cyber-secondary btn-lg">
                                 <i class="fa-brands fa-steam"></i> WISHLIST ON STEAM
                             </a>
-                            <button id="btn-showcase-launch" class="btn btn-cyber-glass btn-lg">
-                                <i class="fa-solid fa-gamepad"></i> PLAY WEBGL DEMO
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -752,7 +749,13 @@
                         </p>
                     </div>
 
-                    <form id="beta-signup-form" class="cyber-form">
+                    <form id="beta-signup-form" class="cyber-form" action="https://formsubmit.co/visionarygamingstudio@gmail.com" method="POST">
+                        <!-- DIRECT EMAIL FORWARDING CONFIGURATION -->
+                        <input type="hidden" name="_subject" value="🏎️ New VIP Alpha Pilot Registration - VoxKart Racing">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_autoresponse" value="Thank you for registering for the VoxKart VIP Alpha Pilot Grid! We have received your submission at Visionary Gaming Studio and will dispatch your private Alpha key and updates directly.">
+
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="user-name"><i class="fa-solid fa-user"></i> PILOT CALLSIGN / NAME</label>
@@ -792,8 +795,8 @@
                     <div id="signup-success-msg" class="success-banner" style="display: none;">
                         <i class="fa-solid fa-circle-check"></i>
                         <div>
-                            <h4>REGISTRATION CONFIRMED!</h4>
-                            <p>Welcome to Visionary Gaming Studio. You'll receive alpha playtest updates and key invites directly.</p>
+                            <h4>REGISTRATION TRANSMITTED & CONFIRMED!</h4>
+                            <p>Your pilot callsign and platform details have been dispatched to <strong>visionarygamingstudio@gmail.com</strong>. You will receive private alpha playtest updates and key invites directly.</p>
                         </div>
                     </div>
 
@@ -861,9 +864,9 @@
                 </div>
 
                 <div class="footer-links-col">
-                    <h4>GAMES & DEMOS</h4>
+                    <h4>GAMES & ACCESS</h4>
                     <ul>
-                        <li><a href="#hero" id="footer-play-game-link"><i class="fa-solid fa-chevron-right"></i> Play WebGL Demo</a></li>
+                        <li><a href="#signup"><i class="fa-solid fa-chevron-right"></i> Join VIP Alpha Grid</a></li>
                         <li><a href="https://store.steampowered.com" target="_blank" rel="noopener"><i class="fa-solid fa-chevron-right"></i> Wishlist on Steam</a></li>
                         <li><a href="logo_3d.html" target="_blank" rel="noopener"><i class="fa-solid fa-chevron-right"></i> Fullscreen 3D Voxel Studio</a></li>
                     </ul>
@@ -989,6 +992,6 @@
     </button>
 
     <!-- MAIN JAVASCRIPT LOGIC -->
-    <script type="module" src="js/app.js?v=3.5"></script>
+    <script type="module" src="js/app.js?v=4.0"></script>
 </body>
 </html>

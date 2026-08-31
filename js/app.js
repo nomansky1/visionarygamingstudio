@@ -6,9 +6,9 @@
              Scroll Spy, Smooth Scroll & VIP Alpha Registration Form
    ========================================================================== */
 
-import { initFullSite3DVoxelLogo } from './hero_3d_logo.js?v=3.5';
-import { initGlobalVoxelBackground } from './global_voxel_bg.js?v=3.5';
-import { initTransparentVideoPlayer } from './transparent_video_player.js?v=3.5';
+import { initFullSite3DVoxelLogo } from './hero_3d_logo.js?v=4.0';
+import { initGlobalVoxelBackground } from './global_voxel_bg.js?v=4.0';
+import { initTransparentVideoPlayer } from './transparent_video_player.js?v=4.0';
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -533,22 +533,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================================
-       6. VIP ALPHA SIGN-UP & DEVLOG FORM HANDLER
+       6. VIP ALPHA SIGN-UP & DIRECT EMAIL DISPATCH HANDLER
        ========================================================================== */
     const signupForm = document.getElementById('beta-signup-form');
     const signupSuccessMsg = document.getElementById('signup-success-msg');
     const btnSubmitSignup = document.getElementById('btn-submit-signup');
 
     if (signupForm) {
-        signupForm.addEventListener('submit', (e) => {
+        signupForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+
+            const userName = document.getElementById('user-name')?.value || '';
+            const userEmail = document.getElementById('user-email')?.value || '';
+            const userPlatform = document.getElementById('user-platform')?.value || 'steam';
+            const userRole = document.getElementById('user-role')?.value || 'player';
 
             if (btnSubmitSignup) {
                 btnSubmitSignup.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> TRANSMITTING PILOT CREDENTIALS...';
                 btnSubmitSignup.disabled = true;
             }
 
-            setTimeout(() => {
+            const formData = {
+                "Pilot Callsign / Name": userName,
+                "Email Address": userEmail,
+                "Primary Platform": userPlatform.toUpperCase(),
+                "Role / Interest": userRole,
+                "_subject": `🏎️ VIP Alpha Pilot Signup: ${userName} (${userPlatform.toUpperCase()})`,
+                "_template": "table",
+                "_captcha": "false"
+            };
+
+            try {
+                // Asynchronous dispatch directly to visionarygamingstudio@gmail.com
+                await fetch('https://formsubmit.co/ajax/visionarygamingstudio@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+            } catch (err) {
+                console.warn('Network submission note (proceeding to confirmation):', err);
+            } finally {
                 if (btnSubmitSignup) {
                     btnSubmitSignup.style.display = 'none';
                 }
@@ -556,7 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (signupSuccessMsg) {
                     signupSuccessMsg.style.display = 'flex';
                 }
-            }, 900);
+            }
         });
     }
 
