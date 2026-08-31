@@ -33,6 +33,23 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn('Transparent Video Player initialization:', err);
     }
 
+    // === 0D. INTERACTIVE 3D MOUSE PARALLAX TILT FOR COMING SOON BADGE ===
+    const csWrapper = document.getElementById('coming-soon-3d-wrapper');
+    const csPlate = document.getElementById('coming-soon-3d-plate');
+    if (csWrapper && csPlate) {
+        csWrapper.addEventListener('mousemove', (e) => {
+            const rect = csWrapper.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            const tiltX = -(y / (rect.height / 2)) * 14;
+            const tiltY = (x / (rect.width / 2)) * 16;
+            csPlate.style.transform = `translateY(-6px) rotateX(${tiltX.toFixed(2)}deg) rotateY(${tiltY.toFixed(2)}deg) scale3d(1.03, 1.03, 1.03)`;
+        });
+        csWrapper.addEventListener('mouseleave', () => {
+            csPlate.style.transform = '';
+        });
+    }
+
     /* ==========================================================================
        1. AMBIENT VOXEL / PARTICLE MATRIX BACKGROUND CANVAS (IF PRESENT)
        ========================================================================== */
@@ -335,33 +352,107 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     /* ==========================================================================
-       4. 4K SCREENSHOT LIGHTBOX GALLERY
+       4. 4K SCREENSHOT LIGHTBOX & FILTER GALLERY
        ========================================================================== */
     const lightboxModal = document.getElementById('lightbox-modal');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxTitle = document.getElementById('lightbox-title');
     const lightboxDesc = document.getElementById('lightbox-desc');
+    const lightboxCategoryTag = document.getElementById('lightbox-category-tag');
+    const lightboxCounter = document.getElementById('lightbox-counter');
+    const lightboxDownloadLink = document.getElementById('lightbox-download-link');
     const lightboxClose = document.getElementById('lightbox-close');
     const lightboxBackdrop = document.getElementById('lightbox-backdrop');
+    const lightboxPrevBtn = document.getElementById('lightbox-prev-btn');
+    const lightboxNextBtn = document.getElementById('lightbox-next-btn');
 
-    const galleryCards = document.querySelectorAll('.gallery-card');
+    const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+    const galleryCards = Array.from(document.querySelectorAll('.gallery-card'));
 
-    galleryCards.forEach((card) => {
-        card.addEventListener('click', () => {
-            const fullSrc = card.dataset.full;
-            const title = card.dataset.title;
-            const desc = card.dataset.desc;
+    let activeFilter = 'all';
+    let currentLightboxIndex = 0;
 
-            if (lightboxImg) lightboxImg.src = fullSrc;
-            if (lightboxTitle) lightboxTitle.textContent = title || '';
-            if (lightboxDesc) lightboxDesc.textContent = desc || '';
+    function getVisibleCards() {
+        if (activeFilter === 'all') return galleryCards;
+        return galleryCards.filter(c => c.dataset.category === activeFilter);
+    }
 
-            if (lightboxModal) {
-                lightboxModal.classList.add('active');
-                lightboxModal.setAttribute('aria-hidden', 'false');
-            }
+    // Filter Buttons logic
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeFilter = btn.dataset.filter || 'all';
+
+            galleryCards.forEach(card => {
+                const cat = card.dataset.category;
+                if (activeFilter === 'all' || cat === activeFilter) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
         });
     });
+
+    function showLightboxItem(index) {
+        const visible = getVisibleCards();
+        if (!visible.length) return;
+
+        if (index < 0) index = visible.length - 1;
+        if (index >= visible.length) index = 0;
+        currentLightboxIndex = index;
+
+        const card = visible[index];
+        const fullSrc = card.dataset.full;
+        const title = card.dataset.title || '';
+        const desc = card.dataset.desc || '';
+        const cat = card.dataset.category || 'Capture';
+
+        const categoryLabels = {
+            'modeler': '<i class="fa-solid fa-cube"></i> VEHICLE MODELER & X-RAY',
+            'garage': '<i class="fa-solid fa-warehouse"></i> RACING WORKSHOP & GARAGE',
+            'builder': '<i class="fa-solid fa-road"></i> PROCEDURAL TRACK BUILDER',
+            'racing': '<i class="fa-solid fa-flag-checkered"></i> IN-GAME COMBAT RACING'
+        };
+
+        if (lightboxImg) lightboxImg.src = fullSrc;
+        if (lightboxTitle) lightboxTitle.textContent = title;
+        if (lightboxDesc) lightboxDesc.textContent = desc;
+        if (lightboxCategoryTag) lightboxCategoryTag.innerHTML = categoryLabels[cat] || '<i class="fa-solid fa-camera"></i> 4K IN-ENGINE CAPTURE';
+        if (lightboxCounter) lightboxCounter.textContent = `${index + 1} / ${visible.length}`;
+        if (lightboxDownloadLink) {
+            lightboxDownloadLink.href = fullSrc;
+            lightboxDownloadLink.setAttribute('download', fullSrc.split('/').pop());
+        }
+
+        if (lightboxModal) {
+            lightboxModal.classList.add('active');
+            lightboxModal.setAttribute('aria-hidden', 'false');
+        }
+    }
+
+    galleryCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const visible = getVisibleCards();
+            const idx = visible.indexOf(card);
+            showLightboxItem(idx >= 0 ? idx : 0);
+        });
+    });
+
+    if (lightboxPrevBtn) {
+        lightboxPrevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showLightboxItem(currentLightboxIndex - 1);
+        });
+    }
+
+    if (lightboxNextBtn) {
+        lightboxNextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showLightboxItem(currentLightboxIndex + 1);
+        });
+    }
 
     function closeLightbox() {
         if (lightboxModal) {
@@ -373,8 +464,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
     if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
 
-    // Global ESC key to close any active modal
+    // Global keyboard navigation
     document.addEventListener('keydown', (e) => {
+        if (lightboxModal && lightboxModal.classList.contains('active')) {
+            if (e.key === 'ArrowLeft') {
+                showLightboxItem(currentLightboxIndex - 1);
+            } else if (e.key === 'ArrowRight') {
+                showLightboxItem(currentLightboxIndex + 1);
+            }
+        }
         if (e.key === 'Escape') {
             closeGameModal();
             closeVideoModal();

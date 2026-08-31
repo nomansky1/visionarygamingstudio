@@ -72,7 +72,7 @@
 
             <!-- DESKTOP NAV -->
             <nav class="desktop-nav" aria-label="Main Navigation">
-                <a href="#games" class="nav-item"><i class="fa-solid fa-flag-checkered"></i> VoxKart</a>
+                <a href="#games" class="nav-item nav-item-flagship"><i class="fa-solid fa-flag-checkered"></i> VoxKart <span class="nav-badge-cs">COMING SOON</span></a>
                 <a href="#tech" class="nav-item"><i class="fa-solid fa-microchip"></i> Voxel Engine</a>
                 <a href="#media" class="nav-item"><i class="fa-solid fa-camera"></i> 4K Media</a>
                 <a href="#about" class="nav-item"><i class="fa-solid fa-user-astronaut"></i> Solo Dev</a>
@@ -85,7 +85,7 @@
                     <i class="fa-solid fa-play"></i> 4K TRAILER
                 </button>
                 <a href="https://store.steampowered.com" target="_blank" rel="noopener" class="btn btn-cyber-primary btn-sm" id="btn-header-wishlist">
-                    <i class="fa-brands fa-steam"></i> WISHLIST ON STEAM
+                    <i class="fa-brands fa-steam"></i> WISHLIST • COMING SOON
                 </a>
                 <button class="mobile-toggle" id="mobile-menu-btn" aria-label="Toggle Mobile Menu">
                     <span></span><span></span><span></span>
@@ -95,7 +95,7 @@
 
         <!-- MOBILE DRAWER NAV -->
         <div class="mobile-drawer" id="mobile-drawer">
-            <a href="#games" class="mobile-nav-item"><i class="fa-solid fa-flag-checkered"></i> VoxKart Racing</a>
+            <a href="#games" class="mobile-nav-item"><i class="fa-solid fa-flag-checkered"></i> VoxKart Racing <span class="nav-badge-cs">COMING SOON</span></a>
             <a href="#tech" class="mobile-nav-item"><i class="fa-solid fa-microchip"></i> Proprietary Voxel Engine</a>
             <a href="#media" class="mobile-nav-item"><i class="fa-solid fa-camera"></i> 4K Screenshot Gallery</a>
             <a href="#about" class="mobile-nav-item"><i class="fa-solid fa-user-astronaut"></i> About Solo Developer</a>
@@ -104,7 +104,7 @@
                 <i class="fa-solid fa-play"></i> WATCH 4K TRAILER
             </button>
             <a href="https://store.steampowered.com" target="_blank" rel="noopener" class="btn btn-cyber-primary btn-block" style="margin-top: 0.5rem;">
-                <i class="fa-brands fa-steam"></i> WISHLIST ON STEAM
+                <i class="fa-brands fa-steam"></i> WISHLIST • COMING SOON
             </a>
         </div>
     </header>
@@ -116,6 +116,15 @@
         <section id="hero" class="hero-voxel-banner">
             <div id="hero-3d-banner-viewport" class="hero-3d-banner-viewport"></div>
             <div class="banner-gradient-blend"></div>
+            
+            <!-- FLOATING HERO COMING SOON STATUS PILL -->
+            <a href="#games" class="hero-status-floating-pill" aria-label="Explore VoxKart Debut Flagship - Coming Soon">
+                <span class="pulse-live-dot"></span>
+                <span class="hero-status-tag">FLAGSHIP TITLE</span>
+                <span class="hero-status-title">VOXKART RACING</span>
+                <span class="hero-status-badge-cs">COMING SOON</span>
+                <i class="fa-solid fa-chevron-down hero-status-arrow"></i>
+            </a>
         </section>
 
         <!-- DISTRIBUTION & PLATFORM PARTNER TICKER (STEAM STORE • ANDROID • IOS) -->
@@ -152,12 +161,40 @@
         <section id="games" class="section games-section">
             <div class="container">
                 <div class="section-header text-center flagship-header-block">
-                    <div class="section-badge"><i class="fa-solid fa-flag-checkered"></i> DEBUT FLAGSHIP</div>
+                    <div class="section-badge"><i class="fa-solid fa-flag-checkered"></i> DEBUT FLAGSHIP <span class="badge-dot-divider">•</span> <span class="badge-cs-text">COMING SOON</span></div>
                     
                     <!-- 3D ANIMATED VOXKART LOGO LOOP (100% TRANSPARENT GPU BLEND) -->
                     <div class="voxkart-3d-logo-blend-wrapper">
                         <canvas id="voxkart-3d-logo-canvas" class="voxkart-3d-logo-canvas"></canvas>
                         <h2 class="sr-only">VOXKART RACING</h2>
+                    </div>
+
+                    <!-- 3D ANIMATED COMING SOON BADGE (VOLUMETRIC, 3D DEPTH & CENTERED) -->
+                    <div class="coming-soon-3d-wrapper" id="coming-soon-3d-wrapper">
+                        <div class="coming-soon-3d-plate" id="coming-soon-3d-plate">
+                            <div class="coming-soon-glow-backdrop"></div>
+                            <div class="coming-soon-scanline"></div>
+                            
+                            <div class="coming-soon-header-row">
+                                <span class="pulse-live-indicator"><span class="pulse-live-dot"></span> EARLY ACCESS TARGET</span>
+                                <span class="coming-soon-platforms"><i class="fa-brands fa-steam"></i> STEAM • <i class="fa-brands fa-android"></i> ANDROID • <i class="fa-brands fa-apple"></i> IOS</span>
+                            </div>
+
+                            <div class="coming-soon-3d-text-container">
+                                <span class="voxel-cube-accent cube-left"></span>
+                                <h3 class="coming-soon-3d-text">
+                                    <span class="cs-word cs-word-coming">COMING</span>
+                                    <span class="cs-word cs-word-soon">SOON</span>
+                                </h3>
+                                <span class="voxel-cube-accent cube-right"></span>
+                            </div>
+
+                            <div class="coming-soon-sub-telemetry">
+                                <span><i class="fa-solid fa-bolt"></i> 120 FPS VOXEL ENGINE</span>
+                                <span class="telemetry-separator">•</span>
+                                <span><i class="fa-solid fa-key"></i> VIP ALPHA IN PROGRESS</span>
+                            </div>
+                        </div>
                     </div>
 
                     <p class="section-subtitle">
@@ -286,13 +323,13 @@
                     <div class="section-badge"><i class="fa-solid fa-microchip"></i> ENGINE ARCHITECTURE</div>
                     <h2 class="section-title">PROPRIETARY <span class="neon-purple-text">VOXEL ENGINE</span></h2>
                     <p class="section-subtitle">
-                        Built solo from the ground up for maximum visual fidelity and ultra-low latency.
+                        Built solo from the ground up: 120 FPS physics, in-engine voxel vehicle modelers, and procedural track editors.
                     </p>
                 </div>
 
-                <!-- 3 CLEAN SPACIOUS GLASS CARDS -->
+                <!-- 4 CLEAN SPACIOUS GLASS CARDS -->
                 <div class="tech-card-grid">
-                    <!-- TECH CARD 1 -->
+                    <!-- TECH CARD 1: PHYSICS -->
                     <div class="tech-card">
                         <div class="tech-icon-box"><i class="fa-solid fa-gauge-high"></i></div>
                         <h3 class="tech-card-title">120 FPS WebGL Physics</h3>
@@ -306,7 +343,7 @@
                         </div>
                     </div>
 
-                    <!-- TECH CARD 2 -->
+                    <!-- TECH CARD 2: OCTREE DEFORMATION -->
                     <div class="tech-card">
                         <div class="tech-icon-box"><i class="fa-solid fa-cubes-stacked"></i></div>
                         <h3 class="tech-card-title">Octree Mesh Deformation</h3>
@@ -320,115 +357,278 @@
                         </div>
                     </div>
 
-                    <!-- TECH CARD 3 -->
+                    <!-- TECH CARD 3: IN-ENGINE VEHICLE MODELER -->
                     <div class="tech-card">
-                        <div class="tech-icon-box"><i class="fa-solid fa-chart-line"></i></div>
-                        <h3 class="tech-card-title">Real-Time Telemetry</h3>
+                        <div class="tech-icon-box"><i class="fa-solid fa-wrench"></i></div>
+                        <h3 class="tech-card-title">In-Engine Car Modeler</h3>
                         <p class="tech-card-text">
-                            Custom GLSL post-processing pipeline featuring adaptive Unreal bloom, volumetric lighting cones, motion blur, and a sub-millisecond digital HUD telemetry suite.
+                            Integrated 3D voxel CAD design tool enabling chassis fabrication, modular drivetrain installation, live paint palette mixing, and real-time X-ray structural inspection.
                         </p>
                         <div class="tech-tags">
-                            <span>Custom GLSL</span>
-                            <span>Unreal Bloom</span>
-                            <span>Digital Split HUD</span>
+                            <span>3D Voxel CAD</span>
+                            <span>X-Ray Wireframe</span>
+                            <span>Modular Tuning Bay</span>
+                        </div>
+                    </div>
+
+                    <!-- TECH CARD 4: PROCEDURAL TRACK BUILDER -->
+                    <div class="tech-card">
+                        <div class="tech-icon-box"><i class="fa-solid fa-bezier-curve"></i></div>
+                        <h3 class="tech-card-title">Procedural Track Builder</h3>
+                        <p class="tech-card-text">
+                            Interactive 3D spline circuit generator with elevation grid mapping, banked hairpin switchbacks, destructible barrier placement, and multiplayer battle arena layout.
+                        </p>
+                        <div class="tech-tags">
+                            <span>3D Spline Curves</span>
+                            <span>Battle Arena Creator</span>
+                            <span>Destructible Hazard Grids</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. 4K IN-GAME GALLERY SECTION -->
+        <!-- 4. 4K IN-GAME GALLERY & IN-ENGINE SHOWCASE (17 HIGH-RES CAPTURES) -->
         <section id="media" class="section media-section">
             <div class="container">
                 <div class="section-header text-center">
-                    <div class="section-badge"><i class="fa-solid fa-camera"></i> 4K IN-GAME CAPTURES</div>
-                    <h2 class="section-title">4K <span class="neon-gold-text">SCREENSHOT GALLERY</span></h2>
+                    <div class="section-badge badge-coming-soon"><span class="pulse-live-dot"></span> COMING SOON TARGET: Q4 2026 • STEAM • ANDROID • IOS</div>
+                    <h2 class="section-title">4K <span class="neon-gold-text">SCREENSHOT & ASSET GALLERY</span></h2>
                     <p class="section-subtitle">
-                        Direct captures from real-time dynamic lighting runs. Click any screenshot to open the 4K Lightbox.
+                        Direct 4K in-engine captures of our vehicle builder, custom tuning garages, procedural track creators, and intense cyber combat racing. Click any capture for the full 4K Lightbox suite.
                     </p>
+
+                    <!-- CATEGORY FILTER BUTTONS -->
+                    <div class="gallery-filter-bar">
+                        <button class="gallery-filter-btn active" data-filter="all">
+                            <i class="fa-solid fa-border-all"></i> ALL CAPTURES (17)
+                        </button>
+                        <button class="gallery-filter-btn" data-filter="modeler">
+                            <i class="fa-solid fa-cube"></i> VEHICLE MODELER & X-RAY (3)
+                        </button>
+                        <button class="gallery-filter-btn" data-filter="garage">
+                            <i class="fa-solid fa-warehouse"></i> RACING GARAGES (4)
+                        </button>
+                        <button class="gallery-filter-btn" data-filter="builder">
+                            <i class="fa-solid fa-road"></i> TRACK BUILDERS (2)
+                        </button>
+                        <button class="gallery-filter-btn" data-filter="racing">
+                            <i class="fa-solid fa-flag-checkered"></i> IN-GAME COMBAT RACING (8)
+                        </button>
+                    </div>
                 </div>
 
-                <!-- 4-COLUMN MODERN CARD GRID -->
-                <div class="gallery-grid">
-                    <!-- IMAGE 1 -->
-                    <div class="gallery-card" data-full="assets/images/voxkart_screen_1.jpg" data-title="Night Metropolis: Cyber City Skyline" data-desc="High-speed neon night circuit with towering cyber skyscrapers, volumetric light cones, and wet asphalt reflections.">
+                <!-- 17-IMAGE MODERN CARD GRID -->
+                <div class="gallery-grid" id="main-gallery-grid">
+                    
+                    <!-- ==================== CATEGORY: VEHICLE MODELER & X-RAY (3 ITEMS) ==================== -->
+                    <!-- IMAGE 1: BUILDER MODELER SUITE -->
+                    <div class="gallery-card" data-category="modeler" data-full="assets/images/Car Builder Modeler 1.png" data-title="Vehicle Builder Modeler: 3D Voxel CAD Suite" data-desc="Comprehensive in-engine 3D voxel CAD workspace showing chassis dimensioning, coordinate grid snapping, live voxel color palette selector, and modular component mounting slots.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-cube"></i> In-Engine Modeler</div>
+                        <img src="assets/images/Car Builder Modeler 1.png" alt="In-Engine 3D Voxel Car Builder Modeler" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                            <h4>Vehicle Builder Modeler: 3D CAD</h4>
+                            <p class="card-desc-brief">In-engine voxel CAD suite with color palettes & chassis scaling.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
+                        </div>
+                    </div>
+
+                    <!-- IMAGE 2: CUSTOM CAR ASSEMBLED -->
+                    <div class="gallery-card" data-category="modeler" data-full="assets/images/Custom Car from the Builder Modeler.png" data-title="Custom Superkart: Aerodynamic Voxel Styling" data-desc="Fully assembled prototype voxel superkart created in the in-game modeler, featuring custom front wing splitters, rear spoiler downforce aero, and signature two-tone racing livery.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-wrench"></i> Custom Superkart</div>
+                        <img src="assets/images/Custom Car from the Builder Modeler.png" alt="Custom Voxel Superkart from Builder Modeler" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                            <h4>Custom Superkart: Aerodynamic Aero</h4>
+                            <p class="card-desc-brief">Assembled prototype voxel kart with front splitters & rear wing.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
+                        </div>
+                    </div>
+
+                    <!-- IMAGE 3: BUILDER X-RAY MODE -->
+                    <div class="gallery-card" data-category="modeler" data-full="assets/images/Custom Car from the Builder Modeler Xray mode.png" data-title="Builder X-Ray Mode: Structural & Drivetrain Rigging" data-desc="In-engine transparent X-ray wireframe inspection mode revealing internal voxel collision meshes, motor mount physics rigging, and center-of-mass balance indicators.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-eye"></i> X-Ray Diagnostic</div>
+                        <img src="assets/images/Custom Car from the Builder Modeler Xray mode.png" alt="Builder Modeler X-Ray Mode" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                            <h4>Builder X-Ray: Internal Rigging</h4>
+                            <p class="card-desc-brief">Transparent X-ray wireframe revealing internal collision meshes & motors.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
+                        </div>
+                    </div>
+
+                    <!-- ==================== CATEGORY: RACING GARAGES (4 ITEMS) ==================== -->
+                    <!-- IMAGE 4: GARAGE 1 LIFT -->
+                    <div class="gallery-card" data-category="garage" data-full="assets/images/Garage 1.png" data-title="Visionary Racing Garage: Lift Platform & Pit Bay" data-desc="State-of-the-art cyber racing garage equipped with hydraulic lift platforms, neon-illuminated tool racks, engine hoist gantries, and diagnostic workbenches.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-warehouse"></i> Workshop Bay</div>
+                        <img src="assets/images/Garage 1.png" alt="Visionary Racing Garage Lift Platform" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                            <h4>Visionary Garage: Lift Platform</h4>
+                            <p class="card-desc-brief">Hydraulic vehicle lift platform, neon tool racks & pit workbenches.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
+                        </div>
+                    </div>
+
+                    <!-- IMAGE 5: GARAGE 2 X-RAY -->
+                    <div class="gallery-card" data-category="garage" data-full="assets/images/Garage 2 xraymode.png" data-title="Garage Diagnostics: Full-Vehicle X-Ray Scanner" data-desc="Workshop diagnostic mode displaying volumetric X-ray transparency to inspect kart suspension travel, shock compression, and structural voxel integrity.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-crosshairs"></i> X-Ray Scanner</div>
+                        <img src="assets/images/Garage 2 xraymode.png" alt="Garage Diagnostics X-Ray Scanner Mode" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                            <h4>Garage Diagnostics: X-Ray Scanner</h4>
+                            <p class="card-desc-brief">Volumetric X-ray scanner evaluating suspension & structural integrity.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
+                        </div>
+                    </div>
+
+                    <!-- IMAGE 6: GARAGE 3 PAINT BAY -->
+                    <div class="gallery-card" data-category="garage" data-full="assets/images/Garage 3.png" data-title="Paint & Customization Bay: Live Palette Editor" data-desc="Tuning workstation with active multi-swatch voxel paint selectors, metallic finish sliders, and real-time lighting previews on customized body panels.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-palette"></i> Livery Tuning</div>
+                        <img src="assets/images/Garage 3.png" alt="Garage Paint and Customization Bay" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                            <h4>Paint Bay: Multi-Swatch Livery</h4>
+                            <p class="card-desc-brief">Active voxel color swatches and metallic finish tuning sliders.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
+                        </div>
+                    </div>
+
+                    <!-- IMAGE 7: GARAGE 4 SHOWROOM -->
+                    <div class="gallery-card" data-category="garage" data-full="assets/images/Garage 4.png" data-title="Showcase Turntable: Dynamic Studio Lighting" data-desc="360-degree rotating showroom turntable featuring volumetric spot illumination, floor reflections, and complete kart inspection angles.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-gem"></i> Showroom Turntable</div>
+                        <img src="assets/images/Garage 4.png" alt="Garage Showroom Turntable" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                            <h4>Showcase Turntable: Studio Lighting</h4>
+                            <p class="card-desc-brief">360-degree rotating showroom turntable with floor reflections.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
+                        </div>
+                    </div>
+
+                    <!-- ==================== CATEGORY: TRACK BUILDERS (2 ITEMS) ==================== -->
+                    <!-- IMAGE 8: ARENA TRACK BUILDER -->
+                    <div class="gallery-card" data-category="builder" data-full="assets/images/Arena track builder.png" data-title="Arena Track Builder: Demolition Battlegrounds" data-desc="Level creation suite for designing enclosed multiplayer battle arenas with destructible voxel barricades, boost pads, weapon spawner nodes, and dynamic hazard zones.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-shield-halved"></i> Battle Arena Creator</div>
+                        <img src="assets/images/Arena track builder.png" alt="Arena Track Builder Tool" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                            <h4>Arena Builder: Demolition Grounds</h4>
+                            <p class="card-desc-brief">Enclosed combat arenas with destructible barricades & powerup nodes.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
+                        </div>
+                    </div>
+
+                    <!-- IMAGE 9: CIRCUIT TRACK BUILDER -->
+                    <div class="gallery-card" data-category="builder" data-full="assets/images/Cicuit traxck builder.png" data-title="Circuit Track Builder: 3D Spline Highway Generator" data-desc="Advanced 3D spline-based track layout editor featuring banked hairpin switchbacks, elevation grids, start/finish gantry placement, and volumetric grandstands.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-bezier-curve"></i> 3D Spline Track Editor</div>
+                        <img src="assets/images/Cicuit traxck builder.png" alt="Circuit Track Builder 3D Spline Tool" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+                            <h4>Circuit Builder: 3D Spline Curves</h4>
+                            <p class="card-desc-brief">Spline track creation with banked turns, elevation grids & gantries.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
+                        </div>
+                    </div>
+
+                    <!-- ==================== CATEGORY: IN-GAME COMBAT RACING (8 ITEMS) ==================== -->
+                    <!-- IMAGE 10: NIGHT METROPOLIS -->
+                    <div class="gallery-card" data-category="racing" data-full="assets/images/voxkart_screen_1.jpg" data-title="Night Metropolis: Cyber City Skyline" data-desc="High-speed neon night circuit with towering cyber skyscrapers, volumetric light cones, particle rain, and wet asphalt reflections.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-city"></i> Night Metropolis</div>
                         <img src="assets/images/voxkart_screen_1.jpg" alt="Night Metropolis Cyber City" loading="lazy">
                         <div class="gallery-card-overlay">
                             <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                             <h4>Night Metropolis: Cyber Skyline</h4>
-                            <p>4K In-Game Capture</p>
+                            <p class="card-desc-brief">Volumetric night lighting, skyscraper canyons & wet asphalt.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
                         </div>
                     </div>
 
-                    <!-- IMAGE 2 -->
-                    <div class="gallery-card" data-full="assets/images/voxkart_screen_2.jpg" data-title="Apex Drift: Stage-3 Nitrous Boost" data-desc="Precision power-sliding through banked hairpin turns with triple-tier drift nitrous ignition.">
+                    <!-- IMAGE 11: APEX DRIFT -->
+                    <div class="gallery-card" data-category="racing" data-full="assets/images/voxkart_screen_2.jpg" data-title="Apex Drift: Stage-3 Nitrous Boost" data-desc="Precision power-sliding through banked hairpin turns with triple-tier drift nitrous ignition and particle vortex sparks.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-fire"></i> Apex Drift</div>
                         <img src="assets/images/voxkart_screen_2.jpg" alt="Apex Drift Gameplay" loading="lazy">
                         <div class="gallery-card-overlay">
                             <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                             <h4>Apex Drift: Nitrous Boost</h4>
-                            <p>Stage 3 Kinetic Drift</p>
+                            <p class="card-desc-brief">Stage 3 kinetic power-slide with nitrous plasma ignition.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
                         </div>
                     </div>
 
-                    <!-- IMAGE 3 -->
-                    <div class="gallery-card" data-full="assets/images/voxkart_screen_3.jpg" data-title="Combat Arena: Kinetic Shield Defense" data-desc="Deployable 360-degree plasma forcefield intercepting homing missiles and rival kart shunts.">
+                    <!-- IMAGE 12: KINETIC SHIELD COMBAT -->
+                    <div class="gallery-card" data-category="racing" data-full="assets/images/voxkart_screen_3.jpg" data-title="Combat Arena: Kinetic Shield Defense" data-desc="Deployable 360-degree plasma forcefield intercepting incoming homing missiles and deflecting rival kart collision shunts.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-shield"></i> Kinetic Defense</div>
                         <img src="assets/images/voxkart_screen_3.jpg" alt="Combat Arena Gameplay" loading="lazy">
                         <div class="gallery-card-overlay">
                             <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                             <h4>Combat Arena: Kinetic Defense</h4>
-                            <p>Kinetic Shield Reflection</p>
+                            <p class="card-desc-brief">360-degree plasma shield deflecting missiles & kart shunts.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
                         </div>
                     </div>
 
-                    <!-- IMAGE 4 -->
-                    <div class="gallery-card" data-full="assets/images/voxkart_screen_4.jpg" data-title="Telemetry HUD: Real-Time Sector Analysis" data-desc="Comprehensive digital telemetry HUD showing sector delta timers, G-force vectors, and boost pressure.">
+                    <!-- IMAGE 13: TELEMETRY HUD -->
+                    <div class="gallery-card" data-category="racing" data-full="assets/images/voxkart_screen_4.jpg" data-title="Telemetry HUD: Real-Time Sector Analysis" data-desc="Comprehensive digital telemetry cockpit HUD displaying split sector delta timers, tire temperature, G-force vectors, and boost pressure.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-gauge"></i> Cockpit HUD</div>
                         <img src="assets/images/voxkart_screen_4.jpg" alt="Lap Telemetry HUD" loading="lazy">
                         <div class="gallery-card-overlay">
                             <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                             <h4>Telemetry: Real-Time HUD</h4>
-                            <p>Sector Delta & G-Force Analysis</p>
+                            <p class="card-desc-brief">Digital split timers, G-force vectors & boost telemetry.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
                         </div>
                     </div>
 
-                    <!-- IMAGE 5 -->
-                    <div class="gallery-card" data-full="assets/images/game_cyber_tunnel.png" data-title="Cyber Tunnel: Particle Slipstream Acceleration" data-desc="High-speed neon tunnel with reflective wet tarmac and dynamic particle vortex acceleration.">
+                    <!-- IMAGE 14: CYBER TUNNEL -->
+                    <div class="gallery-card" data-category="racing" data-full="assets/images/game_cyber_tunnel.png" data-title="Cyber Tunnel: Particle Slipstream Acceleration" data-desc="High-velocity transit through a subterranean neon tunnel with reflective wet tarmac and dynamic particle vortex acceleration.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-bolt"></i> Cyber Tunnel</div>
                         <img src="assets/images/game_cyber_tunnel.png" alt="Cyber Tunnel Gameplay" loading="lazy">
                         <div class="gallery-card-overlay">
                             <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                             <h4>Cyber Tunnel: Slipstream</h4>
-                            <p>Particle Vortex Acceleration</p>
+                            <p class="card-desc-brief">High-velocity transit with particle vortex acceleration.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
                         </div>
                     </div>
 
-                    <!-- IMAGE 6 -->
-                    <div class="gallery-card" data-full="assets/images/game_coastal_combat.png" data-title="Coastal Highway: High-Speed Missile Sprint" data-desc="Missile lock-on and plasma shield deflection at 180 MPH along the ocean boardwalk.">
+                    <!-- IMAGE 15: COASTAL COMBAT -->
+                    <div class="gallery-card" data-category="racing" data-full="assets/images/game_coastal_combat.png" data-title="Coastal Highway: High-Speed Missile Sprint" data-desc="High-stakes offensive combat with active missile lock-on and plasma shield deflection at 180 MPH along the ocean boardwalk.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-crosshairs"></i> Missile Combat</div>
                         <img src="assets/images/game_coastal_combat.png" alt="Coastal Combat Gameplay" loading="lazy">
                         <div class="gallery-card-overlay">
                             <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                             <h4>Coastal Highway: Missile Sprint</h4>
-                            <p>Kinetic Missile Combat</p>
+                            <p class="card-desc-brief">Active homing missile lock-on at 180 MPH on ocean boardwalk.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
                         </div>
                     </div>
 
-                    <!-- IMAGE 7 -->
-                    <div class="gallery-card" data-full="assets/images/game_hairpin_drift.png" data-title="Highland Canyons: Banked Hairpin Switchbacks" data-desc="Precision power-sliding through hairpin switchbacks with turbo nitro buildup.">
+                    <!-- IMAGE 16: HAIRPIN DRIFT -->
+                    <div class="gallery-card" data-category="racing" data-full="assets/images/game_hairpin_drift.png" data-title="Highland Canyons: Banked Hairpin Switchbacks" data-desc="Precision power-sliding through multi-tier canyon switchbacks with maximum nitrous multiplier accumulation.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-mountain"></i> Canyon Switchbacks</div>
                         <img src="assets/images/game_hairpin_drift.png" alt="Hairpin Drift Gameplay" loading="lazy">
                         <div class="gallery-card-overlay">
                             <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                             <h4>Highland: Banked Switchbacks</h4>
-                            <p>Drift Multiplier Stage 3</p>
+                            <p class="card-desc-brief">Multi-tier canyon drift with maximum nitrous multiplier.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
                         </div>
                     </div>
 
-                    <!-- IMAGE 8 -->
-                    <div class="gallery-card" data-full="assets/images/game_coastal_circuit.png" data-title="Riverside Beach: Golden Hour Aerodynamics" data-desc="Golden hour daylight reflections on custom voxel livery and chrome aerodynamic wings.">
+                    <!-- IMAGE 17: RIVERSIDE GOLDEN HOUR -->
+                    <div class="gallery-card" data-category="racing" data-full="assets/images/game_coastal_circuit.png" data-title="Riverside Beach: Golden Hour Circuit" data-desc="Golden hour daylight reflections highlighting custom voxel livery, aerodynamic wings, and ambient environmental occlusion.">
+                        <div class="gallery-card-tag"><i class="fa-solid fa-sun"></i> Golden Hour</div>
                         <img src="assets/images/game_coastal_circuit.png" alt="Coastal Circuit Gameplay" loading="lazy">
                         <div class="gallery-card-overlay">
                             <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
                             <h4>Riverside: Golden Hour Circuit</h4>
-                            <p>Voxel Aerodynamics & Livery</p>
+                            <p class="card-desc-brief">Daylight reflections on custom voxel livery & aero wings.</p>
+                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -755,15 +955,30 @@
         </div>
     </div>
 
-    <!-- LIGHTBOX MODAL FOR SCREENSHOTS -->
-    <div class="lightbox-modal" id="lightbox-modal" aria-hidden="true">
+    <!-- LIGHTBOX MODAL FOR SCREENSHOTS WITH NAVIGATION & DEEP DESCRIPTIONS -->
+    <div class="lightbox-modal" id="lightbox-modal" aria-hidden="true" role="dialog">
         <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
         <div class="lightbox-content">
-            <button class="lightbox-close" id="lightbox-close"><i class="fa-solid fa-xmark"></i></button>
-            <img src="" alt="Screenshot Full View" id="lightbox-img">
+            <div class="lightbox-nav-header">
+                <span class="lightbox-category-tag" id="lightbox-category-tag"><i class="fa-solid fa-camera"></i> 4K IN-ENGINE CAPTURE</span>
+                <span class="lightbox-counter" id="lightbox-counter">1 / 17</span>
+                <button class="lightbox-close" id="lightbox-close" title="Close Lightbox"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="lightbox-media-container">
+                <button class="lightbox-nav-arrow arrow-prev" id="lightbox-prev-btn" title="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
+                <img src="" alt="Screenshot Full View" id="lightbox-img">
+                <button class="lightbox-nav-arrow arrow-next" id="lightbox-next-btn" title="Next Image"><i class="fa-solid fa-chevron-right"></i></button>
+            </div>
+
             <div class="lightbox-info">
                 <h3 id="lightbox-title"></h3>
                 <p id="lightbox-desc"></p>
+                <div class="lightbox-actions-row">
+                    <a href="" id="lightbox-download-link" download class="btn btn-cyber-secondary btn-sm" target="_blank" rel="noopener">
+                        <i class="fa-solid fa-download"></i> Full-Res PNG / JPG
+                    </a>
+                </div>
             </div>
         </div>
     </div>
