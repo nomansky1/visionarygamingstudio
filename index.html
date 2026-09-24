@@ -1,1002 +1,341 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Nelson Rios Perez | Visionary Gaming Studio — Solo Indie Game Developer</title>
-    
-    <!-- Primary Meta Tags -->
-    <meta name="title" content="Nelson Rios Perez | Visionary Gaming Studio — Solo Indie Game Developer">
-    <meta name="description" content="Official solo indie game developer portfolio of Nelson Rios Perez, founder of Visionary Gaming Studio. Creator of VoxKart Racing, Project Chimera, and Aeroblitz: Kinetic Strike.">
-    <meta name="keywords" content="Nelson Rios Perez, Visionary Gaming Studio, VoxKart Racing, Solo Indie Game Developer, Project Chimera, Aeroblitz Kinetic Strike, Three.js, Voxel Physics Engine, Steam Games, WebGL Racing, Indie Game Dev">
-    <meta name="author" content="Nelson Rios Perez">
-    <meta name="theme-color" content="#070712">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Visionary Gaming Studio — Indie Game Publisher of VoxKart</title>
+<meta name="description" content="Independent publisher of VoxKart: Combat Circuit, free combat racing on iPhone, iPad and Android, and LEVIATHAN, a deep-sea pinball game coming soon.">
+<link rel="canonical" href="https://visionarygamingstudio.com/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="author" content="Visionary Gaming Studio">
+<meta name="theme-color" content="#050407">
+<meta name="color-scheme" content="dark">
 
-    <!-- Open Graph / Facebook / Discord -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://visionarygamingstudio.com/">
-    <meta property="og:title" content="Nelson Rios Perez | Visionary Gaming Studio — Solo Indie Game Developer">
-    <meta property="og:description" content="Official portfolio of solo indie developer Nelson Rios Perez. Engineering high-speed arcade combat, deformable voxel worlds, and pulse-pounding racing games.">
-    <meta property="og:image" content="assets/images/voxkart_screen_1.jpg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Visionary Gaming Studio">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Visionary Gaming Studio — games for the phone in your pocket">
+<meta property="og:description" content="Publisher of VoxKart: Combat Circuit, free on iPhone and Android. Next from the studio: LEVIATHAN, a deep-sea pinball game.">
+<meta property="og:image" content="https://visionarygamingstudio.com/assets/web/og-studio.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Visionary Gaming Studio crowned-eye emblem beside VoxKart and LEVIATHAN">
+<meta property="og:url" content="https://visionarygamingstudio.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Visionary Gaming Studio — games for the phone in your pocket">
+<meta name="twitter:description" content="Publisher of VoxKart: Combat Circuit, free on iPhone and Android. Next from the studio: LEVIATHAN, a deep-sea pinball game.">
+<meta name="twitter:image" content="https://visionarygamingstudio.com/assets/web/og-studio.jpg">
+<meta name="twitter:image:alt" content="The Visionary Gaming Studio crowned-eye emblem beside VoxKart and LEVIATHAN">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://visionarygamingstudio.com/">
-    <meta property="twitter:title" content="Nelson Rios Perez | Visionary Gaming Studio">
-    <meta property="twitter:description" content="Solo indie game developer & creator of VoxKart Racing, Project Chimera, and Aeroblitz.">
-    <meta property="twitter:image" content="assets/images/voxkart_screen_1.jpg">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/web/favicon-48.png">
+<link rel="apple-touch-icon" href="/assets/web/apple-touch-icon.png">
 
-    <link rel="icon" type="image/png" href="assets/images/logo_transparent.png">
-
-    <!-- Anti-Cache Directives for Instant Global Updates -->
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:ital,wght@0,500;0,700;0,900;1,800;1,900&family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="css/style.css?v=5.0">
-
-    <!-- Three.js Import Map -->
-    <script type="importmap">
+<!-- One @graph, so the studio, its catalogue and each game are linked by @id.
+     VoxKart keeps the same @id its own site uses (voxkartracing.com/#game), so
+     search engines read the two sites as describing one game from one publisher. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "imports": {
-        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-      }
+      "@type": "Organization",
+      "@id": "https://visionarygamingstudio.com/#org",
+      "name": "Visionary Gaming Studio",
+      "url": "https://visionarygamingstudio.com/",
+      "logo": "https://visionarygamingstudio.com/assets/web/vgs-mark-512.png",
+      "image": "https://visionarygamingstudio.com/assets/web/og-studio.jpg",
+      "email": "visionarygamingstudio@gmail.com",
+      "description": "Independent studio that designs, builds and publishes mobile games.",
+      "founder": { "@type": "Person", "name": "Nelson Rios Perez", "jobTitle": "Founder" },
+      "sameAs": ["https://www.youtube.com/channel/UCWjUcwF-49zWNMt8-PW7FOQ"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://visionarygamingstudio.com/#website",
+      "url": "https://visionarygamingstudio.com/",
+      "name": "Visionary Gaming Studio",
+      "publisher": { "@id": "https://visionarygamingstudio.com/#org" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "VideoGame",
+      "@id": "https://voxkartracing.com/#game",
+      "name": "VoxKart: Combat Circuit",
+      "alternateName": "VoxKart",
+      "url": "https://voxkartracing.com/",
+      "description": "Combat car racing you can play offline. 55 voxel cars, 15 hand-built circuits, weapons bought in the garage and a Car Builder to model your own. Free on iPhone, iPad and Android.",
+      "image": "https://voxkartracing.com/img/og-card-stores.jpg",
+      "genre": ["Racing", "Vehicular combat", "Arcade"],
+      "gamePlatform": ["iOS", "Android"],
+      "operatingSystem": "iOS 15.0 or later, Android 8.0 or later",
+      "applicationCategory": "GameApplication",
+      "playMode": "SinglePlayer",
+      "inLanguage": ["en", "es", "pt", "fr", "de", "it", "tr", "ru", "ja", "ko", "zh"],
+      "author": { "@id": "https://visionarygamingstudio.com/#org" },
+      "publisher": { "@id": "https://visionarygamingstudio.com/#org" },
+      "sameAs": [
+        "https://apps.apple.com/us/app/voxkart-combat-circuit/id6810421116",
+        "https://play.google.com/store/apps/details?id=com.voxkartracing.voxkart"
+      ],
+      "offers": [
+        { "@type": "Offer", "name": "VoxKart: Combat Circuit on the App Store", "price": "0", "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock", "url": "https://apps.apple.com/us/app/voxkart-combat-circuit/id6810421116" },
+        { "@type": "Offer", "name": "VoxKart: Combat Circuit Racing on Google Play", "price": "0", "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock", "url": "https://play.google.com/store/apps/details?id=com.voxkartracing.voxkart" }
+      ]
+    },
+    {
+      "@type": "VideoGame",
+      "@id": "https://visionarygamingstudio.com/#leviathan",
+      "name": "LEVIATHAN",
+      "description": "A deep-sea pinball game from Visionary Gaming Studio. In development.",
+      "genre": ["Pinball", "Arcade"],
+      "image": "https://visionarygamingstudio.com/assets/web/leviathan-logo.webp",
+      "creativeWorkStatus": "In development",
+      "author": { "@id": "https://visionarygamingstudio.com/#org" },
+      "publisher": { "@id": "https://visionarygamingstudio.com/#org" }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://visionarygamingstudio.com/#catalogue",
+      "name": "Games from Visionary Gaming Studio",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": { "@id": "https://voxkartracing.com/#game" } },
+        { "@type": "ListItem", "position": 2, "item": { "@id": "https://visionarygamingstudio.com/#leviathan" } }
+      ]
     }
-    </script>
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=Rajdhani:wght@500;600;700&display=swap">
+<link rel="preload" as="image" href="/assets/web/vgs-logo.webp">
+<link rel="stylesheet" href="/css/site.css?v=1">
 </head>
-<body class="cyber-theme">
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<canvas id="sky" aria-hidden="true"></canvas>
 
-    <!-- FULL-SITE GLOBAL 3D VOXEL COSMOS BACKGROUND (MULTI-COLOR & MULTI-SIZE CUBES) -->
-    <canvas id="global-voxel-canvas"></canvas>
+<header class="top">
+  <div class="shell top-in">
+    <a class="brand" href="/" aria-label="Visionary Gaming Studio, home">
+      <img src="/assets/web/vgs-mark.webp" width="40" height="40" alt="">
+      <span class="brand-name">Visionary <span>Gaming Studio</span></span>
+    </a>
+    <nav class="top-nav" aria-label="Primary">
+      <a href="#voxkart">VoxKart</a>
+      <a href="#studio">Studio</a>
+      <a href="#catalogue">Games</a>
+      <a href="#press">Press</a>
+    </nav>
+  </div>
+</header>
 
-    <!-- SCANLINE & GLOW OVERLAY -->
-    <div class="crt-overlay"></div>
-    <div class="ambient-glow glow-top-left"></div>
-    <div class="ambient-glow glow-bottom-right"></div>
+<main id="main">
 
-    <!-- MAIN HEADER NAVIGATION -->
-    <header class="studio-header">
-        <div class="header-container">
-            <a href="#hero" class="brand-link" aria-label="Visionary Gaming Studio Home">
-                <img src="assets/images/logo_transparent.png" alt="Visionary Gaming Studio Logo" class="nav-logo header-logo-animated">
-                <div class="brand-text">
-                    <span class="brand-name">VISIONARY</span>
-                    <span class="brand-sub">GAMING STUDIO</span>
-                </div>
-            </a>
-
-            <!-- DESKTOP NAV -->
-            <nav class="desktop-nav" aria-label="Main Navigation">
-                <a href="#games" class="nav-item nav-item-flagship"><i class="fa-solid fa-flag-checkered"></i> VoxKart <span class="nav-badge-cs">COMING SOON</span></a>
-                <a href="#tech" class="nav-item"><i class="fa-solid fa-microchip"></i> Voxel Engine</a>
-                <a href="#media" class="nav-item"><i class="fa-solid fa-camera"></i> 4K Media</a>
-                <a href="#about" class="nav-item"><i class="fa-solid fa-user-astronaut"></i> Solo Dev</a>
-                <a href="#signup" class="nav-item"><i class="fa-solid fa-key"></i> VIP Alpha</a>
-            </nav>
-
-            <!-- ACTION BUTTONS -->
-            <div class="header-actions">
-                <button class="btn btn-cyber-secondary btn-sm" id="btn-header-trailer" title="Watch 4K Gameplay Trailer">
-                    <i class="fa-solid fa-play"></i> 4K TRAILER
-                </button>
-                <a href="https://store.steampowered.com" target="_blank" rel="noopener" class="btn btn-cyber-primary btn-sm" id="btn-header-wishlist">
-                    <i class="fa-brands fa-steam"></i> WISHLIST • COMING SOON
-                </a>
-                <button class="mobile-toggle" id="mobile-menu-btn" aria-label="Toggle Mobile Menu">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
+  <!-- The imprint on one side, the first release playing on a phone on the other:
+       a publisher whose shelf is the phone in your pocket. -->
+  <section class="hero">
+    <div class="shell hero-in">
+      <div class="imprint">
+        <p class="label">Independent games publisher</p>
+        <h1 class="imprint-logo"><img src="/assets/web/vgs-logo.webp" width="1024" height="687" alt="Visionary Gaming Studio"></h1>
+        <p class="lede">We design, build and publish games for the phone in your pocket.
+          Our first title is out now on iPhone and Android. The second is surfacing.</p>
+        <div class="actions">
+          <a class="btn btn-lit" href="#voxkart">Play VoxKart free</a>
+          <a class="btn" href="#catalogue">All games</a>
         </div>
-
-        <!-- MOBILE DRAWER NAV -->
-        <div class="mobile-drawer" id="mobile-drawer">
-            <a href="#games" class="mobile-nav-item"><i class="fa-solid fa-flag-checkered"></i> VoxKart Racing <span class="nav-badge-cs">COMING SOON</span></a>
-            <a href="#tech" class="mobile-nav-item"><i class="fa-solid fa-microchip"></i> Proprietary Voxel Engine</a>
-            <a href="#media" class="mobile-nav-item"><i class="fa-solid fa-camera"></i> 4K Screenshot Gallery</a>
-            <a href="#about" class="mobile-nav-item"><i class="fa-solid fa-user-astronaut"></i> About Solo Developer</a>
-            <a href="#signup" class="mobile-nav-item"><i class="fa-solid fa-key"></i> VIP Alpha Access & Press</a>
-            <button class="btn btn-cyber-secondary btn-block" id="btn-mobile-trailer" style="margin-top: 1rem;">
-                <i class="fa-solid fa-play"></i> WATCH 4K TRAILER
-            </button>
-            <a href="https://store.steampowered.com" target="_blank" rel="noopener" class="btn btn-cyber-primary btn-block" style="margin-top: 0.5rem;">
-                <i class="fa-brands fa-steam"></i> WISHLIST • COMING SOON
-            </a>
+      </div>
+      <!-- Held sideways, because that is how VoxKart is played: every frame is the
+           phone's own screen, the race HUD from real races and real taps in the Car Builder. -->
+      <figure class="handset">
+        <div class="handset-screen">
+          <video autoplay muted loop playsinline preload="metadata" poster="/assets/web/voxkart-phone-poster.jpg"
+                 aria-label="Ten seconds of VoxKart on a phone: a daytime race with the touch controls, a railgun and spikes going onto a car in the Car Builder, a new paint job, then a night race taking the lead">
+            <source src="/assets/web/voxkart-phone.mp4" type="video/mp4">
+          </video>
         </div>
-    </header>
-
-    <!-- MAIN SITE CONTAINER -->
-    <main>
-
-        <!-- 1. HERO BANNER (STATIONARY 3D VOXEL EMBLEM WITH SLOW GRAVITY BLENDED INTO BACKGROUND) -->
-        <section id="hero" class="hero-voxel-banner">
-            <div id="hero-3d-banner-viewport" class="hero-3d-banner-viewport"></div>
-            <div class="banner-gradient-blend"></div>
-            
-            <!-- FLOATING HERO COMING SOON STATUS PILL -->
-            <a href="#games" class="hero-status-floating-pill" aria-label="Explore VoxKart Debut Flagship - Coming Soon">
-                <span class="pulse-live-dot"></span>
-                <span class="hero-status-tag">FLAGSHIP TITLE</span>
-                <span class="hero-status-title">VOXKART RACING</span>
-                <span class="hero-status-badge-cs">COMING SOON</span>
-                <i class="fa-solid fa-chevron-down hero-status-arrow"></i>
-            </a>
-        </section>
-
-        <!-- DISTRIBUTION & PLATFORM PARTNER TICKER (STEAM STORE • ANDROID • IOS) -->
-        <div class="tech-ticker-wrapper">
-            <div class="tech-ticker-track">
-                <span class="ticker-item"><i class="fa-brands fa-steam"></i> STEAM STORE</span>
-                <span class="ticker-item"><i class="fa-brands fa-android"></i> ANDROID</span>
-                <span class="ticker-item"><i class="fa-brands fa-apple"></i> IOS</span>
-                <span class="ticker-item"><i class="fa-brands fa-steam"></i> STEAM STORE</span>
-                <span class="ticker-item"><i class="fa-brands fa-android"></i> ANDROID</span>
-                <span class="ticker-item"><i class="fa-brands fa-apple"></i> IOS</span>
-                <span class="ticker-item"><i class="fa-brands fa-steam"></i> STEAM STORE</span>
-                <span class="ticker-item"><i class="fa-brands fa-android"></i> ANDROID</span>
-                <span class="ticker-item"><i class="fa-brands fa-apple"></i> IOS</span>
-                <span class="ticker-item"><i class="fa-brands fa-steam"></i> STEAM STORE</span>
-                <span class="ticker-item"><i class="fa-brands fa-android"></i> ANDROID</span>
-                <span class="ticker-item"><i class="fa-brands fa-apple"></i> IOS</span>
-                <span class="ticker-item"><i class="fa-brands fa-steam"></i> STEAM STORE</span>
-                <span class="ticker-item"><i class="fa-brands fa-android"></i> ANDROID</span>
-                <span class="ticker-item"><i class="fa-brands fa-apple"></i> IOS</span>
-                <span class="ticker-item"><i class="fa-brands fa-steam"></i> STEAM STORE</span>
-                <span class="ticker-item"><i class="fa-brands fa-android"></i> ANDROID</span>
-                <span class="ticker-item"><i class="fa-brands fa-apple"></i> IOS</span>
-                <span class="ticker-item"><i class="fa-brands fa-steam"></i> STEAM STORE</span>
-                <span class="ticker-item"><i class="fa-brands fa-android"></i> ANDROID</span>
-                <span class="ticker-item"><i class="fa-brands fa-apple"></i> IOS</span>
-                <span class="ticker-item"><i class="fa-brands fa-steam"></i> STEAM STORE</span>
-                <span class="ticker-item"><i class="fa-brands fa-android"></i> ANDROID</span>
-                <span class="ticker-item"><i class="fa-brands fa-apple"></i> IOS</span>
-            </div>
-        </div>
-
-        <!-- 2. FLAGSHIP GAME SHOWCASE SECTION -->
-        <section id="games" class="section games-section">
-            <div class="container">
-                <div class="section-header text-center flagship-header-block">
-                    <div class="section-badge"><i class="fa-solid fa-flag-checkered"></i> DEBUT FLAGSHIP <span class="badge-dot-divider">•</span> <span class="badge-cs-text">COMING SOON</span></div>
-                    
-                    <!-- 3D ANIMATED VOXKART LOGO LOOP (100% TRANSPARENT GPU BLEND) -->
-                    <div class="voxkart-3d-logo-blend-wrapper">
-                        <canvas id="voxkart-3d-logo-canvas" class="voxkart-3d-logo-canvas"></canvas>
-                        <h2 class="sr-only">VOXKART RACING</h2>
-                    </div>
-
-                    <!-- 3D ANIMATED COMING SOON BADGE (VOLUMETRIC, 3D DEPTH & CENTERED) -->
-                    <div class="coming-soon-3d-wrapper" id="coming-soon-3d-wrapper">
-                        <div class="coming-soon-3d-plate" id="coming-soon-3d-plate">
-                            <div class="coming-soon-glow-backdrop"></div>
-                            <div class="coming-soon-scanline"></div>
-                            
-                            <div class="coming-soon-header-row">
-                                <span class="pulse-live-indicator"><span class="pulse-live-dot"></span> EARLY ACCESS TARGET</span>
-                                <span class="coming-soon-platforms"><i class="fa-brands fa-steam"></i> STEAM • <i class="fa-brands fa-android"></i> ANDROID • <i class="fa-brands fa-apple"></i> IOS</span>
-                            </div>
-
-                            <div class="coming-soon-3d-text-container">
-                                <span class="voxel-cube-accent cube-left"></span>
-                                <h3 class="coming-soon-3d-text">
-                                    <span class="cs-word cs-word-coming">COMING</span>
-                                    <span class="cs-word cs-word-soon">SOON</span>
-                                </h3>
-                                <span class="voxel-cube-accent cube-right"></span>
-                            </div>
-
-                            <div class="coming-soon-sub-telemetry">
-                                <span><i class="fa-solid fa-bolt"></i> 120 FPS VOXEL ENGINE</span>
-                                <span class="telemetry-separator">•</span>
-                                <span><i class="fa-solid fa-key"></i> VIP ALPHA IN PROGRESS</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <p class="section-subtitle">
-                        An explosive cyber-arcade combat racer engineered from scratch with real-time deformable voxel physics.
-                    </p>
-                </div>
-
-                <!-- WIDESCREEN 2-COLUMN SHOWCASE CARD -->
-                <div class="game-feature-grid">
-                    <!-- LEFT COLUMN: VIDEO PLAYER & THUMBNAILS -->
-                    <div class="game-media-column">
-                        <div class="media-display-card">
-                            <!-- EMBEDDED VIDEO PLAYER WITH CUSTOM CYBER OVERLAY & POSTER -->
-                            <div class="video-preview-wrapper" id="video-card-trigger">
-                                <video id="flagship-inline-video" class="video-poster-img" poster="assets/images/voxkart_screen_1.jpg" preload="auto" muted loop playsinline autoplay>
-                                    <source src="assets/videos/voxkart_clip_race.mp4" type="video/mp4">
-                                    Your browser does not support HTML5 video.
-                                </video>
-                                <div class="video-play-overlay">
-                                    <div class="pulse-play-btn"><i class="fa-solid fa-play"></i></div>
-                                    <span class="play-hint">WATCH 4K GAMEPLAY TRAILER</span>
-                                </div>
-                                <div class="media-corner-accent corner-tl"></div>
-                                <div class="media-corner-accent corner-tr"></div>
-                                <div class="media-corner-accent corner-bl"></div>
-                                <div class="media-corner-accent corner-br"></div>
-                            </div>
-
-                            <!-- VIDEO THUMBNAIL SWITCHER STRIP -->
-                            <div class="video-thumbnails-strip">
-                                <div class="thumb-item active" data-video-src="assets/videos/voxkart_trailer_web.mp4" data-youtube-id="HfrzjO09BY0" data-poster="assets/images/voxkart_screen_1.jpg" data-title="Night Metropolis: 4K Gameplay Trailer">
-                                    <img src="assets/images/voxkart_screen_1.jpg" alt="Night Metropolis 4K Trailer">
-                                    <span><i class="fa-solid fa-film"></i> 4K Trailer</span>
-                                </div>
-                                <div class="thumb-item" data-video-src="assets/videos/voxkart_clip_drift.mp4" data-youtube-id="1iRomnKB4wQ" data-poster="assets/images/voxkart_screen_2.jpg" data-title="Apex Drift: Stage-3 Nitrous Boost">
-                                    <img src="assets/images/voxkart_screen_2.jpg" alt="Apex Drift Boost Preview">
-                                    <span><i class="fa-solid fa-bolt"></i> 3-Tier Drift</span>
-                                </div>
-                                <div class="thumb-item" data-video-src="assets/videos/voxkart_clip_combat.mp4" data-youtube-id="6iZs2kAW_xM" data-poster="assets/images/voxkart_screen_3.jpg" data-title="Combat Arena: Kinetic Forcefield Defense">
-                                    <img src="assets/images/voxkart_screen_3.jpg" alt="Combat Arena Preview">
-                                    <span><i class="fa-solid fa-shield-halved"></i> Voxel Combat</span>
-                                </div>
-                                <div class="thumb-item" data-video-src="assets/videos/voxkart_clip_race.mp4" data-youtube-id="HfrzjO09BY0" data-poster="assets/images/voxkart_screen_4.jpg" data-title="Telemetry HUD: G-Force & Lap Analysis">
-                                    <img src="assets/images/voxkart_screen_4.jpg" alt="Telemetry HUD Preview">
-                                    <span><i class="fa-solid fa-gauge-high"></i> Circuit Race</span>
-                                </div>
-                            </div>
-
-                            <!-- PLATFORM AVAILABILITY PILLS -->
-                            <div class="game-meta-pills">
-                                <a href="https://www.youtube.com/channel/UCWjUcwF-49zWNMt8-PW7FOQ" target="_blank" rel="noopener" class="meta-pill" style="color: #ff0033; border-color: rgba(255, 0, 51, 0.4); text-decoration: none;"><i class="fa-brands fa-youtube"></i> YouTube Channel</a>
-                                <span class="meta-pill"><i class="fa-brands fa-steam"></i> Steam Store</span>
-                                <span class="meta-pill"><i class="fa-brands fa-android"></i> Android</span>
-                                <span class="meta-pill"><i class="fa-brands fa-apple"></i> iOS</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- RIGHT COLUMN: GAME HEADLINE, DESCRIPTION & 4 FEATURE CHIPS -->
-                    <div class="game-info-column">
-                        <div class="game-badge-row">
-                            <span class="game-badge neon-green"><i class="fa-solid fa-gamepad"></i> VOXKART COMBAT RACING</span>
-                            <span class="game-badge neon-gold"><i class="fa-solid fa-bolt"></i> 120 FPS VOXEL ENGINE</span>
-                        </div>
-                        <h3 class="game-headline">VOXKART: TACTICAL DRIFT & DESTRUCTIBLE COMBAT CIRCUIT</h3>
-                        <p class="game-body-text">
-                            Step into pure arcade adrenaline. VoxKart combines precision drift physics with real-time deformable octree voxel tracks. 
-                            Blast through cyber-lit metropolis speedways, master 3-tier plasma power-slides, deploy kinetic defense shields, and dominate rival racers with devastating homing missiles.
-                        </p>
-                        
-                        <!-- 4 KEY FEATURE CHIPS -->
-                        <div class="feature-chips-grid">
-                            <div class="feature-chip-card">
-                                <div class="feature-chip-icon"><i class="fa-solid fa-city"></i></div>
-                                <div class="feature-chip-info">
-                                    <h4>Night Metropolis: Cyber Skyline Circuit</h4>
-                                    <p>High-velocity urban sprint through towering neon skyscrapers, volumetric bloom lighting, and wet asphalt reflections.</p>
-                                </div>
-                            </div>
-
-                            <div class="feature-chip-card">
-                                <div class="feature-chip-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
-                                <div class="feature-chip-info">
-                                    <h4>Apex Drift: 3-Tier Nitrous Boost</h4>
-                                    <p>Triple-stage counter-steer drift system charging kinetic sparks for explosive straightaway nitrous burst acceleration.</p>
-                                </div>
-                            </div>
-
-                            <div class="feature-chip-card">
-                                <div class="feature-chip-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
-                                <div class="feature-chip-info">
-                                    <h4>Voxel Impact: Deformable Track & Chassis</h4>
-                                    <p>Dynamic octree track cratering, crumbling barrier walls, and real-time kart chassis dismemberment physics.</p>
-                                </div>
-                            </div>
-
-                            <div class="feature-chip-card">
-                                <div class="feature-chip-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                                <div class="feature-chip-info">
-                                    <h4>Combat Arena: Kinetic Shields & Missiles</h4>
-                                    <p>Deployable 360-degree plasma forcefields intercepting homing missiles, barrier hazards, and aggressive rival rams.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="game-action-buttons">
-                            <button id="btn-showcase-trailer" class="btn btn-cyber-primary btn-lg">
-                                <i class="fa-solid fa-play"></i> WATCH 4K TRAILER
-                            </button>
-                            <a href="https://store.steampowered.com" target="_blank" rel="noopener" class="btn btn-cyber-secondary btn-lg">
-                                <i class="fa-brands fa-steam"></i> WISHLIST ON STEAM
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. PROPRIETARY VOXEL ENGINE SECTION -->
-        <section id="tech" class="section tech-section">
-            <div class="container">
-                <div class="section-header text-center">
-                    <div class="section-badge"><i class="fa-solid fa-microchip"></i> ENGINE ARCHITECTURE</div>
-                    <h2 class="section-title">PROPRIETARY <span class="neon-purple-text">VOXEL ENGINE</span></h2>
-                    <p class="section-subtitle">
-                        Built solo from the ground up: 120 FPS physics, in-engine voxel vehicle modelers, and procedural track editors.
-                    </p>
-                </div>
-
-                <!-- 4 CLEAN SPACIOUS GLASS CARDS -->
-                <div class="tech-card-grid">
-                    <!-- TECH CARD 1: PHYSICS -->
-                    <div class="tech-card">
-                        <div class="tech-icon-box"><i class="fa-solid fa-gauge-high"></i></div>
-                        <h3 class="tech-card-title">120 FPS WebGL Physics</h3>
-                        <p class="tech-card-text">
-                            High-frequency deterministic physics solver utilizing raycast multi-link suspension, dynamic tire friction curves, aerodynamic downforce, and sub-millisecond input response.
-                        </p>
-                        <div class="tech-tags">
-                            <span>Deterministic Solver</span>
-                            <span>Raycast Suspension</span>
-                            <span>120+ FPS Target</span>
-                        </div>
-                    </div>
-
-                    <!-- TECH CARD 2: OCTREE DEFORMATION -->
-                    <div class="tech-card">
-                        <div class="tech-icon-box"><i class="fa-solid fa-cubes-stacked"></i></div>
-                        <h3 class="tech-card-title">Octree Mesh Deformation</h3>
-                        <p class="tech-card-text">
-                            Dynamic hierarchical octree spatial partitioning enables real-time destruction, hull fragmentation, and voxel particle dismemberment without GPU memory spikes.
-                        </p>
-                        <div class="tech-tags">
-                            <span>Octree Partitioning</span>
-                            <span>Instanced Mesh GPU</span>
-                            <span>Real-Time Fracture</span>
-                        </div>
-                    </div>
-
-                    <!-- TECH CARD 3: IN-ENGINE VEHICLE MODELER -->
-                    <div class="tech-card">
-                        <div class="tech-icon-box"><i class="fa-solid fa-wrench"></i></div>
-                        <h3 class="tech-card-title">In-Engine Car Modeler</h3>
-                        <p class="tech-card-text">
-                            Integrated 3D voxel CAD design tool enabling chassis fabrication, modular drivetrain installation, live paint palette mixing, and real-time X-ray structural inspection.
-                        </p>
-                        <div class="tech-tags">
-                            <span>3D Voxel CAD</span>
-                            <span>X-Ray Wireframe</span>
-                            <span>Modular Tuning Bay</span>
-                        </div>
-                    </div>
-
-                    <!-- TECH CARD 4: PROCEDURAL TRACK BUILDER -->
-                    <div class="tech-card">
-                        <div class="tech-icon-box"><i class="fa-solid fa-bezier-curve"></i></div>
-                        <h3 class="tech-card-title">Procedural Track Builder</h3>
-                        <p class="tech-card-text">
-                            Interactive 3D spline circuit generator with elevation grid mapping, banked hairpin switchbacks, destructible barrier placement, and multiplayer battle arena layout.
-                        </p>
-                        <div class="tech-tags">
-                            <span>3D Spline Curves</span>
-                            <span>Battle Arena Creator</span>
-                            <span>Destructible Hazard Grids</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. 4K IN-GAME GALLERY & IN-ENGINE SHOWCASE (17 HIGH-RES CAPTURES) -->
-        <section id="media" class="section media-section">
-            <div class="container">
-                <div class="section-header text-center">
-                    <div class="section-badge badge-coming-soon"><span class="pulse-live-dot"></span> COMING SOON TARGET: Q4 2026 • STEAM • ANDROID • IOS</div>
-                    <h2 class="section-title">4K <span class="neon-gold-text">SCREENSHOT & ASSET GALLERY</span></h2>
-                    <p class="section-subtitle">
-                        Direct 4K in-engine captures of our vehicle builder, custom tuning garages, procedural track creators, and intense cyber combat racing. Click any capture for the full 4K Lightbox suite.
-                    </p>
-
-                    <!-- CATEGORY FILTER BUTTONS -->
-                    <div class="gallery-filter-bar">
-                        <button class="gallery-filter-btn active" data-filter="all">
-                            <i class="fa-solid fa-border-all"></i> ALL CAPTURES (17)
-                        </button>
-                        <button class="gallery-filter-btn" data-filter="modeler">
-                            <i class="fa-solid fa-cube"></i> VEHICLE MODELER & X-RAY (3)
-                        </button>
-                        <button class="gallery-filter-btn" data-filter="garage">
-                            <i class="fa-solid fa-warehouse"></i> RACING GARAGES (4)
-                        </button>
-                        <button class="gallery-filter-btn" data-filter="builder">
-                            <i class="fa-solid fa-road"></i> TRACK BUILDERS (2)
-                        </button>
-                        <button class="gallery-filter-btn" data-filter="racing">
-                            <i class="fa-solid fa-flag-checkered"></i> IN-GAME COMBAT RACING (8)
-                        </button>
-                    </div>
-                </div>
-
-                <!-- 17-IMAGE MODERN CARD GRID -->
-                <div class="gallery-grid" id="main-gallery-grid">
-                    
-                    <!-- ==================== CATEGORY: VEHICLE MODELER & X-RAY (3 ITEMS) ==================== -->
-                    <!-- IMAGE 1: BUILDER MODELER SUITE -->
-                    <div class="gallery-card" data-category="modeler" data-full="assets/images/Car Builder Modeler 1.png" data-title="Vehicle Builder Modeler: 3D Voxel CAD Suite" data-desc="Comprehensive in-engine 3D voxel CAD workspace showing chassis dimensioning, coordinate grid snapping, live voxel color palette selector, and modular component mounting slots.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-cube"></i> In-Engine Modeler</div>
-                        <img src="assets/images/Car Builder Modeler 1.png" alt="In-Engine 3D Voxel Car Builder Modeler" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Vehicle Builder Modeler: 3D CAD</h4>
-                            <p class="card-desc-brief">In-engine voxel CAD suite with color palettes & chassis scaling.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- IMAGE 2: CUSTOM CAR ASSEMBLED -->
-                    <div class="gallery-card" data-category="modeler" data-full="assets/images/Custom Car from the Builder Modeler.png" data-title="Custom Superkart: Aerodynamic Voxel Styling" data-desc="Fully assembled prototype voxel superkart created in the in-game modeler, featuring custom front wing splitters, rear spoiler downforce aero, and signature two-tone racing livery.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-wrench"></i> Custom Superkart</div>
-                        <img src="assets/images/Custom Car from the Builder Modeler.png" alt="Custom Voxel Superkart from Builder Modeler" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Custom Superkart: Aerodynamic Aero</h4>
-                            <p class="card-desc-brief">Assembled prototype voxel kart with front splitters & rear wing.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- IMAGE 3: BUILDER X-RAY MODE -->
-                    <div class="gallery-card" data-category="modeler" data-full="assets/images/Custom Car from the Builder Modeler Xray mode.png" data-title="Builder X-Ray Mode: Structural & Drivetrain Rigging" data-desc="In-engine transparent X-ray wireframe inspection mode revealing internal voxel collision meshes, motor mount physics rigging, and center-of-mass balance indicators.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-eye"></i> X-Ray Diagnostic</div>
-                        <img src="assets/images/Custom Car from the Builder Modeler Xray mode.png" alt="Builder Modeler X-Ray Mode" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Builder X-Ray: Internal Rigging</h4>
-                            <p class="card-desc-brief">Transparent X-ray wireframe revealing internal collision meshes & motors.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- ==================== CATEGORY: RACING GARAGES (4 ITEMS) ==================== -->
-                    <!-- IMAGE 4: GARAGE 1 LIFT -->
-                    <div class="gallery-card" data-category="garage" data-full="assets/images/Garage 1.png" data-title="Visionary Racing Garage: Lift Platform & Pit Bay" data-desc="State-of-the-art cyber racing garage equipped with hydraulic lift platforms, neon-illuminated tool racks, engine hoist gantries, and diagnostic workbenches.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-warehouse"></i> Workshop Bay</div>
-                        <img src="assets/images/Garage 1.png" alt="Visionary Racing Garage Lift Platform" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Visionary Garage: Lift Platform</h4>
-                            <p class="card-desc-brief">Hydraulic vehicle lift platform, neon tool racks & pit workbenches.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- IMAGE 5: GARAGE 2 X-RAY -->
-                    <div class="gallery-card" data-category="garage" data-full="assets/images/Garage 2 xraymode.png" data-title="Garage Diagnostics: Full-Vehicle X-Ray Scanner" data-desc="Workshop diagnostic mode displaying volumetric X-ray transparency to inspect kart suspension travel, shock compression, and structural voxel integrity.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-crosshairs"></i> X-Ray Scanner</div>
-                        <img src="assets/images/Garage 2 xraymode.png" alt="Garage Diagnostics X-Ray Scanner Mode" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Garage Diagnostics: X-Ray Scanner</h4>
-                            <p class="card-desc-brief">Volumetric X-ray scanner evaluating suspension & structural integrity.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- IMAGE 6: GARAGE 3 PAINT BAY -->
-                    <div class="gallery-card" data-category="garage" data-full="assets/images/Garage 3.png" data-title="Paint & Customization Bay: Live Palette Editor" data-desc="Tuning workstation with active multi-swatch voxel paint selectors, metallic finish sliders, and real-time lighting previews on customized body panels.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-palette"></i> Livery Tuning</div>
-                        <img src="assets/images/Garage 3.png" alt="Garage Paint and Customization Bay" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Paint Bay: Multi-Swatch Livery</h4>
-                            <p class="card-desc-brief">Active voxel color swatches and metallic finish tuning sliders.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- IMAGE 7: GARAGE 4 SHOWROOM -->
-                    <div class="gallery-card" data-category="garage" data-full="assets/images/Garage 4.png" data-title="Showcase Turntable: Dynamic Studio Lighting" data-desc="360-degree rotating showroom turntable featuring volumetric spot illumination, floor reflections, and complete kart inspection angles.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-gem"></i> Showroom Turntable</div>
-                        <img src="assets/images/Garage 4.png" alt="Garage Showroom Turntable" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Showcase Turntable: Studio Lighting</h4>
-                            <p class="card-desc-brief">360-degree rotating showroom turntable with floor reflections.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- ==================== CATEGORY: TRACK BUILDERS (2 ITEMS) ==================== -->
-                    <!-- IMAGE 8: ARENA TRACK BUILDER -->
-                    <div class="gallery-card" data-category="builder" data-full="assets/images/Arena track builder.png" data-title="Arena Track Builder: Demolition Battlegrounds" data-desc="Level creation suite for designing enclosed multiplayer battle arenas with destructible voxel barricades, boost pads, weapon spawner nodes, and dynamic hazard zones.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-shield-halved"></i> Battle Arena Creator</div>
-                        <img src="assets/images/Arena track builder.png" alt="Arena Track Builder Tool" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Arena Builder: Demolition Grounds</h4>
-                            <p class="card-desc-brief">Enclosed combat arenas with destructible barricades & powerup nodes.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- IMAGE 9: CIRCUIT TRACK BUILDER -->
-                    <div class="gallery-card" data-category="builder" data-full="assets/images/Cicuit traxck builder.png" data-title="Circuit Track Builder: 3D Spline Highway Generator" data-desc="Advanced 3D spline-based track layout editor featuring banked hairpin switchbacks, elevation grids, start/finish gantry placement, and volumetric grandstands.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-bezier-curve"></i> 3D Spline Track Editor</div>
-                        <img src="assets/images/Cicuit traxck builder.png" alt="Circuit Track Builder 3D Spline Tool" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Circuit Builder: 3D Spline Curves</h4>
-                            <p class="card-desc-brief">Spline track creation with banked turns, elevation grids & gantries.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- ==================== CATEGORY: IN-GAME COMBAT RACING (8 ITEMS) ==================== -->
-                    <!-- IMAGE 10: NIGHT METROPOLIS -->
-                    <div class="gallery-card" data-category="racing" data-full="assets/images/voxkart_screen_1.jpg" data-title="Night Metropolis: Cyber City Skyline" data-desc="High-speed neon night circuit with towering cyber skyscrapers, volumetric light cones, particle rain, and wet asphalt reflections.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-city"></i> Night Metropolis</div>
-                        <img src="assets/images/voxkart_screen_1.jpg" alt="Night Metropolis Cyber City" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Night Metropolis: Cyber Skyline</h4>
-                            <p class="card-desc-brief">Volumetric night lighting, skyscraper canyons & wet asphalt.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- IMAGE 11: APEX DRIFT -->
-                    <div class="gallery-card" data-category="racing" data-full="assets/images/voxkart_screen_2.jpg" data-title="Apex Drift: Stage-3 Nitrous Boost" data-desc="Precision power-sliding through banked hairpin turns with triple-tier drift nitrous ignition and particle vortex sparks.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-fire"></i> Apex Drift</div>
-                        <img src="assets/images/voxkart_screen_2.jpg" alt="Apex Drift Gameplay" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Apex Drift: Nitrous Boost</h4>
-                            <p class="card-desc-brief">Stage 3 kinetic power-slide with nitrous plasma ignition.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- IMAGE 12: KINETIC SHIELD COMBAT -->
-                    <div class="gallery-card" data-category="racing" data-full="assets/images/voxkart_screen_3.jpg" data-title="Combat Arena: Kinetic Shield Defense" data-desc="Deployable 360-degree plasma forcefield intercepting incoming homing missiles and deflecting rival kart collision shunts.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-shield"></i> Kinetic Defense</div>
-                        <img src="assets/images/voxkart_screen_3.jpg" alt="Combat Arena Gameplay" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Combat Arena: Kinetic Defense</h4>
-                            <p class="card-desc-brief">360-degree plasma shield deflecting missiles & kart shunts.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- IMAGE 13: TELEMETRY HUD -->
-                    <div class="gallery-card" data-category="racing" data-full="assets/images/voxkart_screen_4.jpg" data-title="Telemetry HUD: Real-Time Sector Analysis" data-desc="Comprehensive digital telemetry cockpit HUD displaying split sector delta timers, tire temperature, G-force vectors, and boost pressure.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-gauge"></i> Cockpit HUD</div>
-                        <img src="assets/images/voxkart_screen_4.jpg" alt="Lap Telemetry HUD" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Telemetry: Real-Time HUD</h4>
-                            <p class="card-desc-brief">Digital split timers, G-force vectors & boost telemetry.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- IMAGE 14: CYBER TUNNEL -->
-                    <div class="gallery-card" data-category="racing" data-full="assets/images/game_cyber_tunnel.png" data-title="Cyber Tunnel: Particle Slipstream Acceleration" data-desc="High-velocity transit through a subterranean neon tunnel with reflective wet tarmac and dynamic particle vortex acceleration.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-bolt"></i> Cyber Tunnel</div>
-                        <img src="assets/images/game_cyber_tunnel.png" alt="Cyber Tunnel Gameplay" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Cyber Tunnel: Slipstream</h4>
-                            <p class="card-desc-brief">High-velocity transit with particle vortex acceleration.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- IMAGE 15: COASTAL COMBAT -->
-                    <div class="gallery-card" data-category="racing" data-full="assets/images/game_coastal_combat.png" data-title="Coastal Highway: High-Speed Missile Sprint" data-desc="High-stakes offensive combat with active missile lock-on and plasma shield deflection at 180 MPH along the ocean boardwalk.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-crosshairs"></i> Missile Combat</div>
-                        <img src="assets/images/game_coastal_combat.png" alt="Coastal Combat Gameplay" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Coastal Highway: Missile Sprint</h4>
-                            <p class="card-desc-brief">Active homing missile lock-on at 180 MPH on ocean boardwalk.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- IMAGE 16: HAIRPIN DRIFT -->
-                    <div class="gallery-card" data-category="racing" data-full="assets/images/game_hairpin_drift.png" data-title="Highland Canyons: Banked Hairpin Switchbacks" data-desc="Precision power-sliding through multi-tier canyon switchbacks with maximum nitrous multiplier accumulation.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-mountain"></i> Canyon Switchbacks</div>
-                        <img src="assets/images/game_hairpin_drift.png" alt="Hairpin Drift Gameplay" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Highland: Banked Switchbacks</h4>
-                            <p class="card-desc-brief">Multi-tier canyon drift with maximum nitrous multiplier.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                    <!-- IMAGE 17: RIVERSIDE GOLDEN HOUR -->
-                    <div class="gallery-card" data-category="racing" data-full="assets/images/game_coastal_circuit.png" data-title="Riverside Beach: Golden Hour Circuit" data-desc="Golden hour daylight reflections highlighting custom voxel livery, aerodynamic wings, and ambient environmental occlusion.">
-                        <div class="gallery-card-tag"><i class="fa-solid fa-sun"></i> Golden Hour</div>
-                        <img src="assets/images/game_coastal_circuit.png" alt="Coastal Circuit Gameplay" loading="lazy">
-                        <div class="gallery-card-overlay">
-                            <div class="gallery-zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-                            <h4>Riverside: Golden Hour Circuit</h4>
-                            <p class="card-desc-brief">Daylight reflections on custom voxel livery & aero wings.</p>
-                            <span class="view-btn-pill"><i class="fa-solid fa-expand"></i> View Full 4K</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. ABOUT SOLO DEVELOPER SECTION -->
-        <section id="about" class="section about-section">
-            <div class="container">
-                <div class="developer-profile-card">
-                    <!-- DEVELOPER HEADER -->
-                    <div class="dev-header-grid">
-                        <div class="dev-avatar-wrapper">
-                            <img src="assets/images/logo_transparent.png" alt="Nelson Rios Perez - Solo Indie Developer" class="dev-avatar-img">
-                            <div class="dev-holo-ring"></div>
-                        </div>
-                        <div class="dev-title-block">
-                            <div class="dev-role-badge">
-                                <i class="fa-solid fa-user-astronaut"></i> SOLO INDIE GAME DEVELOPER & FOUNDER
-                            </div>
-                            <h2 class="dev-name">NELSON RIOS PEREZ</h2>
-                            <div class="dev-location-tag">
-                                <i class="fa-solid fa-location-dot"></i> Visionary Gaming Studio • Independent Game Creator
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- DEVELOPER VISION QUOTE -->
-                    <div class="dev-vision-quote">
-                        <i class="fa-solid fa-quote-right dev-quote-icon"></i>
-                        <p class="dev-quote-text">
-                            "As a solo developer, my mission is to deliver pure kinetic velocity and unforgettable arcade thrills without publisher bloat. Every line of code, every voxel model, and every physics calculation is built with relentless dedication to gameplay feel."
-                        </p>
-                        <span class="dev-quote-author">— Nelson Rios Perez</span>
-                    </div>
-
-                    <!-- BIO TEXT -->
-                    <div class="dev-bio-text" style="margin-bottom: 28px;">
-                        <p class="lead-text">
-                            Nelson Rios Perez is an independent game architect, systems programmer, and technical artist creating high-octane indie titles with bespoke voxel physics technology.
-                        </p>
-                        <p class="body-text">
-                            Operating as a true solo developer under <strong>Visionary Gaming Studio</strong>, Nelson designs and engineers every layer of production: custom physics engines, GLSL rendering shaders, Blender 3D voxel models, procedural audio synthesis, UI/UX, and multi-platform publishing.
-                        </p>
-                    </div>
-
-                    <!-- TECHNICAL STACK BADGES -->
-                    <div class="tech-stack-container">
-                        <h4 class="dev-section-subtitle"><i class="fa-solid fa-code"></i> SOLO DEVELOPER TECH STACK</h4>
-                        <div class="tech-stack-badges">
-                            <span class="tech-badge badge-threejs"><i class="fa-solid fa-cube"></i> Three.js / WebGPU</span>
-                            <span class="tech-badge badge-webgl"><i class="fa-brands fa-html5"></i> WebGL 2.0 Core</span>
-                            <span class="tech-badge badge-wasm"><i class="fa-solid fa-microchip"></i> C++ / WebAssembly</span>
-                            <span class="tech-badge badge-glsl"><i class="fa-solid fa-wand-magic-sparkles"></i> Custom GLSL Shaders</span>
-                            <span class="tech-badge badge-blender"><i class="fa-solid fa-cubes-stacked"></i> Blender 3D Voxel Pipeline</span>
-                            <span class="tech-badge"><i class="fa-brands fa-js"></i> TypeScript / ESNext</span>
-                            <span class="tech-badge"><i class="fa-solid fa-wave-square"></i> Web Audio API Synthesis</span>
-                        </div>
-                    </div>
-
-                    <!-- UPCOMING PIPELINE -->
-                    <div class="pipeline-section-wrapper">
-                        <h4 class="dev-section-subtitle"><i class="fa-solid fa-rocket"></i> UPCOMING STUDIO PIPELINE</h4>
-                        <div class="pipeline-grid">
-                            <!-- PIPELINE 1 -->
-                            <div class="pipeline-card">
-                                <div class="pipeline-header">
-                                    <h4>PROJECT CHIMERA</h4>
-                                    <span class="pipeline-status alpha">ACTIVE ALPHA</span>
-                                </div>
-                                <p class="pipeline-desc">
-                                    Tactical cyber-espionage stealth action featuring dynamic volumetric shadows, non-linear infiltration routes, and procedural voxel cover destruction.
-                                </p>
-                                <div class="tech-tags">
-                                    <span>Stealth Espionage</span>
-                                    <span>Voxel Cover Damage</span>
-                                    <span>PC / Steam</span>
-                                </div>
-                            </div>
-
-                            <!-- PIPELINE 2 -->
-                            <div class="pipeline-card">
-                                <div class="pipeline-header">
-                                    <h4>AEROBLITZ: KINETIC STRIKE</h4>
-                                    <span class="pipeline-status concept">COMING 2027</span>
-                                </div>
-                                <p class="pipeline-desc">
-                                    High-G Anti-Grav combat arena racing with 6DOF flight physics through 360-degree magnetic tubular circuits and modular railguns.
-                                </p>
-                                <div class="tech-tags">
-                                    <span>6DOF Flight</span>
-                                    <span>Magnetic Circuits</span>
-                                    <span>WebGPU / Native</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FOOTER SOCIAL & CONTACT -->
-                    <div class="dev-footer-row" style="margin-top: 32px;">
-                        <div class="dev-social-group">
-                            <a href="https://store.steampowered.com" target="_blank" rel="noopener" class="dev-social-btn" title="Steam Store"><i class="fa-brands fa-steam"></i></a>
-                            <a href="https://twitter.com" target="_blank" rel="noopener" class="dev-social-btn" title="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
-                            <a href="https://discord.com" target="_blank" rel="noopener" class="dev-social-btn" title="Discord"><i class="fa-brands fa-discord"></i></a>
-                            <a href="https://www.youtube.com/channel/UCWjUcwF-49zWNMt8-PW7FOQ" target="_blank" rel="noopener" class="dev-social-btn" title="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
-                            <a href="https://github.com" target="_blank" rel="noopener" class="dev-social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                        </div>
-                        <p class="contact-email"><i class="fa-solid fa-envelope"></i> <a href="mailto:visionarygamingstudio@gmail.com" style="color: inherit; text-decoration: none;">visionarygamingstudio@gmail.com</a></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. VIP ALPHA SIGN-UP & PRESS SECTION -->
-        <section id="signup" class="section contact-section">
-            <div class="container">
-                <div class="contact-box-card">
-                    <div class="contact-header text-center" style="margin-bottom: 32px;">
-                        <div class="section-badge"><i class="fa-solid fa-key"></i> VIP ALPHA ACCESS & PRESS</div>
-                        <h2 class="section-title">JOIN THE <span class="neon-purple-text">ALPHA PILOT GRID</span></h2>
-                        <p class="section-subtitle">
-                            Sign up for closed Steam, Android, and iOS Alpha keys, playtest invitations, and direct dev updates.
-                        </p>
-                    </div>
-
-                    <form id="beta-signup-form" class="cyber-form" action="https://formsubmit.co/visionarygamingstudio@gmail.com" method="POST">
-                        <!-- DIRECT EMAIL FORWARDING CONFIGURATION -->
-                        <input type="hidden" name="_subject" value="🏎️ New VIP Alpha Pilot Registration - VoxKart Racing">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_autoresponse" value="Thank you for registering for the VoxKart VIP Alpha Pilot Grid! We have received your submission at Visionary Gaming Studio and will dispatch your private Alpha key and updates directly.">
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="user-name"><i class="fa-solid fa-user"></i> PILOT CALLSIGN / NAME</label>
-                                <input type="text" id="user-name" name="name" placeholder="e.g. ApexDrifter" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="user-email"><i class="fa-solid fa-envelope"></i> EMAIL ADDRESS</label>
-                                <input type="email" id="user-email" name="email" placeholder="pilot@domain.com" required>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="user-platform"><i class="fa-solid fa-display"></i> PRIMARY PLATFORM</label>
-                                <select id="user-platform" name="platform">
-                                    <option value="steam">PC / Steam</option>
-                                    <option value="android">Android (Google Play)</option>
-                                    <option value="ios">iOS (Apple App Store / TestFlight)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="user-role"><i class="fa-solid fa-tags"></i> I AM A...</label>
-                                <select id="user-role" name="role">
-                                    <option value="player">Avid Gamer / Combat Racer</option>
-                                    <option value="creator">Content Creator / Streamer</option>
-                                    <option value="press">Press / Media Reviewer</option>
-                                    <option value="dev">Game Developer / Publisher</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-cyber-primary btn-lg btn-block" id="btn-submit-signup">
-                            <i class="fa-solid fa-paper-plane"></i> CLAIM CLOSED ALPHA ACCESS
-                        </button>
-                    </form>
-
-                    <div id="signup-success-msg" class="success-banner" style="display: none;">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <div>
-                            <h4>REGISTRATION TRANSMITTED & CONFIRMED!</h4>
-                            <p>Your pilot callsign and platform details have been dispatched to <strong>visionarygamingstudio@gmail.com</strong>. You will receive private alpha playtest updates and key invites directly.</p>
-                        </div>
-                    </div>
-
-                    <!-- COMPACT PRESS KIT DOWNLOAD BAR -->
-                    <div class="press-kit-compact-grid">
-                        <div class="press-kit-compact-card">
-                            <div class="press-kit-info">
-                                <h5>Brand Pack (PNG)</h5>
-                                <p>High-res logo with alpha transparency.</p>
-                            </div>
-                            <a href="assets/images/logo_transparent.png" download="VisionaryGamingStudio_Logo.png" class="btn btn-cyber-glass btn-sm" title="Download Brand Pack">
-                                <i class="fa-solid fa-download"></i>
-                            </a>
-                        </div>
-
-                        <div class="press-kit-compact-card">
-                            <div class="press-kit-info">
-                                <h5>4K Hero Wallpaper</h5>
-                                <p>3D Voxel Studio Wall art in 4K.</p>
-                            </div>
-                            <a href="assets/images/logo_dark_voxel.jpg" download="Visionary_3D_Hero.jpg" class="btn btn-cyber-glass btn-sm" title="Download Wallpaper">
-                                <i class="fa-solid fa-download"></i>
-                            </a>
-                        </div>
-
-                        <div class="press-kit-compact-card">
-                            <div class="press-kit-info">
-                                <h5>VoxKart Brand Kit</h5>
-                                <p>Title logo & Steam capsules.</p>
-                            </div>
-                            <a href="assets/images/voxkart_logo.png" download="VoxKart_Brand_Kit.png" class="btn btn-cyber-glass btn-sm" title="Download Game Kit">
-                                <i class="fa-solid fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- 7. CLEAN MINIMALIST FOOTER -->
-    <footer class="studio-footer">
-        <div class="container">
-            <div class="footer-top-grid">
-                <div class="footer-brand-col">
-                    <img src="assets/images/logo_transparent.png" alt="Visionary Gaming Studio" class="footer-logo header-logo-animated">
-                    <p class="footer-motto">
-                        Nelson Rios Perez — Solo Indie Game Developer & Founder of Visionary Gaming Studio. Pioneering kinetic arcade physics and deformable voxel worlds.
-                    </p>
-                    <div class="domain-badges">
-                        <span class="domain-badge"><i class="fa-solid fa-globe"></i> visionarygamingstudio.com</span>
-                    </div>
-                </div>
-
-                <div class="footer-links-col">
-                    <h4>NAVIGATION</h4>
-                    <ul>
-                        <li><a href="#games"><i class="fa-solid fa-chevron-right"></i> VoxKart Racing</a></li>
-                        <li><a href="#tech"><i class="fa-solid fa-chevron-right"></i> Voxel Engine Tech</a></li>
-                        <li><a href="#media"><i class="fa-solid fa-chevron-right"></i> 4K Screenshot Gallery</a></li>
-                        <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> About Nelson Rios Perez</a></li>
-                        <li><a href="#signup"><i class="fa-solid fa-chevron-right"></i> VIP Alpha Sign-Up</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links-col">
-                    <h4>GAMES & ACCESS</h4>
-                    <ul>
-                        <li><a href="#signup"><i class="fa-solid fa-chevron-right"></i> Join VIP Alpha Grid</a></li>
-                        <li><a href="https://store.steampowered.com" target="_blank" rel="noopener"><i class="fa-solid fa-chevron-right"></i> Wishlist on Steam</a></li>
-                        <li><a href="logo_3d.html" target="_blank" rel="noopener"><i class="fa-solid fa-chevron-right"></i> Fullscreen 3D Voxel Studio</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-links-col">
-                    <h4>CONNECT WITH NELSON</h4>
-                    <div class="social-links-row">
-                        <a href="https://store.steampowered.com" target="_blank" rel="noopener" class="social-btn" title="Steam Store"><i class="fa-brands fa-steam"></i></a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener" class="social-btn" title="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="https://discord.com" target="_blank" rel="noopener" class="social-btn" title="Discord"><i class="fa-brands fa-discord"></i></a>
-                        <a href="https://www.youtube.com/channel/UCWjUcwF-49zWNMt8-PW7FOQ" target="_blank" rel="noopener" class="social-btn" title="YouTube Channel"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="https://github.com" target="_blank" rel="noopener" class="social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                    </div>
-                    <p class="contact-email"><i class="fa-solid fa-envelope"></i> <a href="mailto:visionarygamingstudio@gmail.com" style="color: inherit; text-decoration: none;">visionarygamingstudio@gmail.com</a></p>
-                </div>
-            </div>
-
-            <div class="footer-bottom-row">
-                <p>&copy; 2026 Nelson Rios Perez • Visionary Gaming Studio. All Rights Reserved.</p>
-                <div class="footer-legal">
-                    <a href="#signup">VIP Alpha</a>
-                    <a href="#about">Solo Dev</a>
-                    <a href="mailto:visionarygamingstudio@gmail.com">Press Inquiries</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- PLAYABLE GAME MODAL OVERLAY -->
-    <div class="game-modal" id="game-modal" aria-hidden="true" role="dialog">
-        <div class="game-modal-backdrop" id="game-modal-backdrop"></div>
-        <div class="game-modal-window">
-            <div class="game-modal-header">
-                <div class="modal-title-wrap">
-                    <img src="assets/images/logo_transparent.png" alt="Visionary Logo" class="modal-mini-logo">
-                    <div>
-                        <h3>VOXKART RACING (WEBGL LIVE DEMO)</h3>
-                        <small>Visionary Gaming Studio • Nelson Rios Perez</small>
-                    </div>
-                </div>
-                <div class="modal-header-actions">
-                    <button class="modal-icon-btn" id="btn-fullscreen-game" title="Toggle Fullscreen"><i class="fa-solid fa-expand"></i></button>
-                    <button class="modal-icon-btn modal-close-btn" id="btn-close-game-modal" title="Exit Game"><i class="fa-solid fa-xmark"></i></button>
-                </div>
-            </div>
-
-            <div class="game-modal-body">
-                <iframe id="game-iframe" src="" title="VoxKart Playable WebGL Game" allow="autoplay; fullscreen; gamepad"></iframe>
-            </div>
-
-            <div class="game-modal-footer">
-                <div class="controls-hint">
-                    <span><kbd>W</kbd> / <kbd>▲</kbd> Accelerate</span>
-                    <span><kbd>A</kbd><kbd>D</kbd> / <kbd>◀</kbd><kbd>▶</kbd> Steer</span>
-                    <span><kbd>S</kbd> / <kbd>▼</kbd> Reverse</span>
-                    <span><kbd>SPACE</kbd> Drift / Brake</span>
-                    <span><kbd>SHIFT</kbd> Turbo Nitrous</span>
-                    <span><kbd>E</kbd> / <kbd>F</kbd> Fire Weapon</span>
-                </div>
-                <a href="../index.html" target="_blank" class="btn btn-cyber-secondary btn-sm">
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i> Open in New Tab
-                </a>
-            </div>
-        </div>
+        <figcaption><span class="catno">VGS-001</span> VoxKart: Combat Circuit <span class="status status-live">Out now</span></figcaption>
+      </figure>
     </div>
+  </section>
 
-    <!-- 4K VIDEO TRAILER MODAL (DUAL ENGINE: HD WEB + YOUTUBE 4K) -->
-    <div class="video-modal" id="video-modal" aria-hidden="true" role="dialog">
-        <div class="video-modal-backdrop" id="video-modal-backdrop"></div>
-        <div class="video-modal-window">
-            <div class="video-modal-header">
-                <div class="video-modal-title" id="video-modal-title">
-                    <i class="fa-solid fa-play"></i> VOXKART 4K GAMEPLAY TRAILER
-                </div>
-                <div class="video-modal-tabs">
-                    <button class="modal-tab-btn active" id="tab-html5-video"><i class="fa-solid fa-film"></i> HD Web Video</button>
-                    <button class="modal-tab-btn" id="tab-youtube-video"><i class="fa-brands fa-youtube"></i> YouTube 4K</button>
-                </div>
-                <button class="video-close-btn" id="btn-close-video" title="Close Video"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <div class="video-container-inner">
-                <video id="trailer-html5-player" controls preload="auto" playsinline>
-                    <source src="assets/videos/voxkart_trailer_web.mp4" type="video/mp4">
-                    Your browser does not support HTML5 video.
-                </video>
-                <iframe id="trailer-youtube-player" src="" style="display: none;" title="VoxKart Official Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            </div>
+  <!-- VGS-001: the release, with the store buttons where the decision gets made. -->
+  <section id="voxkart" class="release" aria-labelledby="voxkart-title">
+    <div class="release-art" aria-hidden="true"></div>
+    <div class="shell release-in">
+      <div class="release-head">
+        <p class="label"><span class="catno">VGS-001</span> <span class="status status-live">Out now</span></p>
+        <img class="release-logo" src="/assets/web/voxkart-logo.webp" width="560" height="341" alt="">
+        <h2 id="voxkart-title">VoxKart: Combat Circuit</h2>
+        <p class="lede">Combat car racing you can play offline. Race 55 voxel cars on 15
+          hand-built circuits, and shoot your way to the front.</p>
+        <ul class="facts" aria-label="VoxKart at a glance">
+          <li><b>55</b> cars</li>
+          <li><b>15</b> circuits</li>
+          <li><b>5</b> race modes</li>
+          <li><b>11</b> languages</li>
+        </ul>
+        <div class="stores">
+          <a class="store" href="https://apps.apple.com/us/app/voxkart-combat-circuit/id6810421116" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+            <span><small>Download on the</small>App Store</span>
+          </a>
+          <a class="store" href="https://play.google.com/store/apps/details?id=com.voxkartracing.voxkart" target="_blank" rel="noopener">
+            <svg viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="#00D0FF" d="M47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0z"/><path fill="#00E77B" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1z"/><path fill="#FFC900" d="M472.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8z"/><path fill="#FF3A44" d="M104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
+            <span><small>Get it on</small>Google Play</span>
+          </a>
         </div>
+        <p class="fine">Free, with optional one-time purchases. iPhone and iPad (iOS 15 or later) and Android 8.0 or later.
+          <a href="https://voxkartracing.com/">voxkartracing.com</a></p>
+      </div>
+
+      <ul class="features">
+        <li><h3>Build your own car</h3><p>Model a car voxel by voxel in the Car Builder, bolt on a weapon, paint it, then race it.</p></li>
+        <li><h3>Guns on the grid</h3><p>Gatlings, rocket pods, homing missiles, mines, a laser pulse and a ram bar. Shots lock on inside a 20° cone.</p></li>
+        <li><h3>Drift for boost</h3><p>Hold a drift through a long corner to bank a charge. Let go, and it fires as boost.</p></li>
+        <li><h3>Plays offline</h3><p>No account, no sign-in, no server. Everything runs on your phone, even in aeroplane mode.</p></li>
+      </ul>
+
+      <div class="screens">
+        <figure><img src="/assets/web/voxkart-05-combat.webp" width="1180" height="545" loading="lazy" alt="VoxKart race from the chase camera, guns firing at rivals ahead"><figcaption>Guns lit, mid-pack</figcaption></figure>
+        <figure><img src="/assets/web/voxkart-03-paint.webp" width="1180" height="545" loading="lazy" alt="VoxKart garage with the paint and livery picker"><figcaption>Paint and liveries</figcaption></figure>
+        <figure><img src="/assets/web/voxkart-06-cockpit.webp" width="1180" height="545" loading="lazy" alt="VoxKart cockpit camera with the rear-view mirror"><figcaption>Cockpit, with a mirror</figcaption></figure>
+      </div>
     </div>
+  </section>
 
-    <!-- LIGHTBOX MODAL FOR SCREENSHOTS WITH NAVIGATION & DEEP DESCRIPTIONS -->
-    <div class="lightbox-modal" id="lightbox-modal" aria-hidden="true" role="dialog">
-        <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
-        <div class="lightbox-content">
-            <div class="lightbox-nav-header">
-                <span class="lightbox-category-tag" id="lightbox-category-tag"><i class="fa-solid fa-camera"></i> 4K IN-ENGINE CAPTURE</span>
-                <span class="lightbox-counter" id="lightbox-counter">1 / 17</span>
-                <button class="lightbox-close" id="lightbox-close" title="Close Lightbox"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            
-            <div class="lightbox-media-container">
-                <button class="lightbox-nav-arrow arrow-prev" id="lightbox-prev-btn" title="Previous Image"><i class="fa-solid fa-chevron-left"></i></button>
-                <img src="" alt="Screenshot Full View" id="lightbox-img">
-                <button class="lightbox-nav-arrow arrow-next" id="lightbox-next-btn" title="Next Image"><i class="fa-solid fa-chevron-right"></i></button>
-            </div>
-
-            <div class="lightbox-info">
-                <h3 id="lightbox-title"></h3>
-                <p id="lightbox-desc"></p>
-                <div class="lightbox-actions-row">
-                    <a href="" id="lightbox-download-link" download class="btn btn-cyber-secondary btn-sm" target="_blank" rel="noopener">
-                        <i class="fa-solid fa-download"></i> Full-Res PNG / JPG
-                    </a>
-                </div>
-            </div>
-        </div>
+  <section id="studio" class="studio" aria-labelledby="studio-title">
+    <div class="shell studio-in">
+      <div class="studio-copy">
+        <p class="label">The studio</p>
+        <h2 id="studio-title">Built and published in-house</h2>
+        <p>Visionary Gaming Studio is an independent studio founded by Nelson Rios Perez. We design,
+          program and publish our own games, from the physics to the store listing, and we build
+          them for phones first.</p>
+        <p class="founder"><img src="/assets/web/vgs-mark.webp" width="44" height="44" alt=""><span><b>Nelson Rios Perez</b>Founder</span></p>
+      </div>
+      <ul class="tenets">
+        <li><h3>Offline by design</h3><p>No accounts, no sign-in, no servers. Our games keep working on a plane.</p></li>
+        <li><h3>Fair about money</h3><p>Everything in VoxKart can be won by playing. Its purchases are one-time: no subscriptions, no loot boxes, no energy timers.</p></li>
+        <li><h3>Made for two thumbs</h3><p>Landscape layouts, controls built for a touch screen, and a 60 fps target on mid-range phones.</p></li>
+      </ul>
     </div>
+  </section>
 
-    <!-- BACK TO TOP BUTTON -->
-    <button class="back-to-top" id="btn-back-to-top" aria-label="Back to top">
-        <i class="fa-solid fa-chevron-up"></i>
-    </button>
+  <!-- The catalogue. Numbers are release order, the way a label numbers its records. -->
+  <section id="catalogue" class="catalogue" aria-labelledby="catalogue-title">
+    <div class="shell">
+      <p class="label">The catalogue</p>
+      <h2 id="catalogue-title">Games from the studio</h2>
+      <ol class="shelf">
+        <li class="sleeve" style="--game: #ffcc00">
+          <div class="spine" aria-hidden="true"><span>VGS-001</span><span>Visionary</span></div>
+          <div class="sleeve-body">
+          <a class="cover" href="https://voxkartracing.com/" aria-label="VoxKart: Combat Circuit website">
+            <img src="/assets/web/voxkart-keyart.webp" width="1200" height="630" loading="lazy" alt="VoxKart key art: a blue and a red voxel car trading fire in a neon tunnel">
+          </a>
+          <div class="sleeve-info">
+            <img class="app-icon" src="/assets/web/voxkart-icon.webp" width="64" height="64" loading="lazy" alt="VoxKart app icon">
+            <div>
+              <p class="status status-live">Out now</p>
+              <h3>VoxKart: Combat Circuit</h3>
+              <p class="meta">Combat car racing &middot; iPhone, iPad and Android</p>
+            </div>
+          </div>
+          <div class="sleeve-actions">
+            <a class="store store-sm" href="https://apps.apple.com/us/app/voxkart-combat-circuit/id6810421116" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+              <span><small>Download on the</small>App Store</span>
+            </a>
+            <a class="store store-sm" href="https://play.google.com/store/apps/details?id=com.voxkartracing.voxkart" target="_blank" rel="noopener">
+              <svg viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="#00D0FF" d="M47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0z"/><path fill="#00E77B" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1z"/><path fill="#FFC900" d="M472.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-14.3 18-46.5-1.2-60.8z"/><path fill="#FF3A44" d="M104.6 499l280.8-161.2-60.1-60.1L104.6 499z"/></svg>
+              <span><small>Get it on</small>Google Play</span>
+            </a>
+          </div>
+          </div>
+        </li>
 
-    <!-- MAIN JAVASCRIPT LOGIC -->
-    <script type="module" src="js/app.js?v=5.0"></script>
+        <li class="sleeve" id="leviathan" style="--game: #36d1bd">
+          <div class="spine" aria-hidden="true"><span>VGS-002</span><span>Visionary</span></div>
+          <div class="sleeve-body">
+          <div class="cover cover-contain">
+            <img src="/assets/web/leviathan-logo.webp" width="900" height="502" loading="lazy" alt="LEVIATHAN logo: a sea serpent coiled through the letters">
+          </div>
+          <div class="sleeve-info">
+            <img class="app-icon" src="/assets/web/leviathan-icon.webp" width="64" height="64" loading="lazy" alt="LEVIATHAN app icon">
+            <div>
+              <p class="status status-soon">Coming soon</p>
+              <h3>LEVIATHAN</h3>
+              <p class="meta">Deep-sea pinball &middot; coming to mobile</p>
+            </div>
+          </div>
+          <p class="blurb">Dive the trench table by table, and face what lives at the bottom.</p>
+          <form class="notify" action="https://formsubmit.co/visionarygamingstudio@gmail.com" method="POST">
+            <label for="notify-email">Get one email when it launches</label>
+            <div class="notify-row">
+              <input id="notify-email" type="email" name="email" required autocomplete="email" placeholder="you@example.com">
+              <button class="btn btn-lit" type="submit">Notify me</button>
+            </div>
+            <input type="hidden" name="list" value="LEVIATHAN launch">
+            <input type="hidden" name="_subject" value="LEVIATHAN launch list: new sign-up">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://visionarygamingstudio.com/?list=joined#leviathan">
+            <input type="hidden" name="_autoresponse" value="You're on the LEVIATHAN launch list. We'll send one email when it's out, and nothing else. - Visionary Gaming Studio">
+            <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <p class="fine">One email on launch day. Your address is not shared or used for anything else.</p>
+          </form>
+          <p class="joined" id="joined" hidden>You're on the list. We'll email you once, when LEVIATHAN launches.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="press" class="press" aria-labelledby="press-title">
+    <div class="shell press-in">
+      <div>
+        <p class="label">Press &amp; business</p>
+        <h2 id="press-title">Fact sheet</h2>
+        <dl class="factsheet">
+          <dt>Publisher</dt><dd>Visionary Gaming Studio</dd>
+          <dt>Founder</dt><dd>Nelson Rios Perez</dd>
+          <dt>Released</dt><dd>VoxKart: Combat Circuit (2026) &middot; iPhone, iPad, Android</dd>
+          <dt>In development</dt><dd>LEVIATHAN &middot; deep-sea pinball</dd>
+          <dt>Contact</dt><dd><a href="mailto:visionarygamingstudio@gmail.com">visionarygamingstudio@gmail.com</a></dd>
+        </dl>
+      </div>
+      <div>
+        <h3 class="kit-title">Press kit</h3>
+        <ul class="kit">
+          <li><a href="/assets/images/visionary_master_logo.jpg" download>Studio logo</a><span>JPG, 1024 &times; 687</span></li>
+          <li><a href="/assets/web/vgs-mark-512.png" download>Studio emblem</a><span>PNG, 512 &times; 512</span></li>
+          <li><a href="/assets/images/voxkart_logo.png" download>VoxKart logo</a><span>PNG, transparent</span></li>
+          <li><a href="https://voxkartracing.com/img/og-card-plain.jpg" download>VoxKart key art</a><span>JPG, 1200 &times; 630</span></li>
+          <li><a href="https://voxkartracing.com/#shots">VoxKart screenshots</a><span>Captured on a phone</span></li>
+        </ul>
+        <p class="follow"><a href="https://www.youtube.com/channel/UCWjUcwF-49zWNMt8-PW7FOQ" target="_blank" rel="noopener">Follow development on YouTube</a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="shell foot-in">
+    <span>&copy; 2026 Visionary Gaming Studio</span>
+    <a href="https://voxkartracing.com/">VoxKart</a>
+    <a href="https://voxkartracing.com/privacy">VoxKart privacy</a>
+    <a href="https://voxkartracing.com/leviathan/privacy">LEVIATHAN privacy</a>
+    <a href="mailto:visionarygamingstudio@gmail.com">Contact</a>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=1" defer></script>
 </body>
 </html>

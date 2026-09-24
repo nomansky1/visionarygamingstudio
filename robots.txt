@@ -1,0 +1,94 @@
+# visionarygamingstudio.com
+#
+# Two different appetites, handled separately.
+#
+# SEARCH ENGINES are welcome and wanted — the whole point of the site is to be
+# found. Google, Bing, DuckDuckGo and friends fall under the catch-all below.
+#
+# AI TRAINING CRAWLERS, CONTENT SCRAPERS AND SEO DATA BROKERS are not. The
+# artwork, the circuits, the screenshots and the copy are not training material
+# and not a dataset, and none of it is licensed for reuse. Every agent named
+# below is refused the whole site.
+#
+# NOTE, honestly: robots.txt is a request, not a lock. It is obeyed by the
+# large, reputable crawlers and ignored by anyone who came here to take
+# something. It is worth having for exactly that reason and no more.
+
+# -- link-preview crawlers: ALWAYS allowed -------------------------------
+# These are what render a share card on Facebook, X, LinkedIn, Slack,
+# Discord, WhatsApp, Telegram and Pinterest. They are NOT scrapers and
+# blocking one silently turns every shared link into a bare grey box.
+# Listed explicitly, and first, because a robots.txt match is by most
+# specific user-agent group: naming them here means no future broad
+# Disallow can ever swallow them by accident.
+#
+# Note the near-miss: "facebookexternalhit" below is the preview fetcher,
+# while "FacebookBot" and "Meta-ExternalAgent" in the refused block are
+# Meta's AI training crawlers. Different agents, opposite intent.
+User-agent: facebookexternalhit
+User-agent: Facebot
+User-agent: Twitterbot
+User-agent: LinkedInBot
+User-agent: Slackbot
+User-agent: Slackbot-LinkExpanding
+User-agent: Discordbot
+User-agent: WhatsApp
+User-agent: TelegramBot
+User-agent: Pinterestbot
+User-agent: redditbot
+User-agent: Applebot
+User-agent: SkypeUriPreview
+User-agent: vkShare
+User-agent: Iframely
+User-agent: Embedly
+Allow: /
+
+User-agent: *
+Allow: /
+Disallow: /PRIVACY.txt
+
+# ── AI training / dataset crawlers ────────────────────────────────────────
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: anthropic-ai
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Meta-ExternalAgent
+User-agent: meta-externalagent
+User-agent: FacebookBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: CCBot
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: cohere-ai
+User-agent: Diffbot
+User-agent: Omgilibot
+User-agent: Timpibot
+User-agent: Webzio-Extended
+User-agent: ImagesiftBot
+User-agent: YouBot
+User-agent: AI2Bot
+Disallow: /
+
+# ── commercial scrapers and competitive-intelligence bots ─────────────────
+# These exist to resell a copy of the site. Remove any line to let that tool
+# see the site again — worth knowing if the studio ever subscribes to one.
+User-agent: AhrefsBot
+User-agent: SemrushBot
+User-agent: DotBot
+User-agent: MJ12bot
+User-agent: DataForSeoBot
+User-agent: BLEXBot
+User-agent: Barkrowler
+User-agent: PetalBot
+User-agent: magpie-crawler
+User-agent: Scrapy
+User-agent: SeekportBot
+User-agent: serpstatbot
+Disallow: /
+
+Sitemap: https://visionarygamingstudio.com/sitemap.xml
